@@ -1,0 +1,217 @@
+/*
+1] GLOBAL RESET
+2] GLOBAL BEST PRACTICES
+3] LOCAL DEFAULT STYLES
+	3a] Tag Styles
+	3b] Template Styles
+	3c] Named Styles
+	3d] Page-Specific Styles
+4] LOCAL MEDIA QUERIES
+
+COLORS: 
+#eeeeee - body background
+#444444 - default text (better than black)
+#1d93bf - text links
+#004888 - hovered text links
+#1d93bf - main nav background
+#fafafa - footer background
+
+
+1] GLOBAL RESET
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border: 0; font: inherit; font-size: 100%; margin: 0; padding: 0; vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ul, ol { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+table { border-collapse: collapse; border-spacing: 0; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+input, select { vertical-align: middle; }
+
+
+/* 
+2] GLOBAL BEST PRACTICES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+html { overflow-y: scroll; } /* Always force a scrollbar in non-IE */
+body { *font-size: small; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; } /* Hack retained to preserve specificity; keywords for IE 6/7 so people can resize text & Initiate iOS and WinMobile to mobile-optimize the text for you*/
+select, input, textarea, button { font: 99% sans-serif; }
+pre, code, kbd, samp { font-family: monospace, sans-serif; } /* Normalize monospace sizing: */
+a:hover, a:active { outline: none; } /* Accessible focus treatment */
+small { font-size: 85%; }
+td { vertical-align: top; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; } /* Set sub, sup without affecting line-height */
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 15px; }
+textarea { overflow: auto; } 
+.ie6 legend, .ie7 legend { margin-left: -7px; } 
+input { -webkit-appearance : none; -webkit-border-radius: 0;}
+input[type="radio"] { vertical-align: text-bottom; } /* Align checkboxes, radios, text inputs with their label */
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; } /* Hand cursor on clickable input elements */
+button, input, select, textarea { margin: 0; } /* Webkit browsers add a 2px margin outside the chrome of form elements */
+button {  width: auto; overflow: visible; } /* Make buttons play nice in IE */
+.ie6 img { height: 100%; width: 100%; }
+.ie7 img, .iem7 img { -ms-interpolation-mode: bicubic; } /* Bicubic resizing for non-native sized IMG */
+
+
+/* 
+3] LOCAL DEFAULT STYLES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+3a] Tag Styles
+*/
+
+body { background: url(/assets/images/spotty-background.png) repeat; margin: 0; color: #676767; font-family: Arial; font-size: 13px; }
+a { outline: none; cursor: pointer; color: #676767; text-decoration: none; }
+a, input { outline: none; }
+
+/*
+3b] Template Styles
+*/
+
+div#container { margin: 20px auto; width: 996px; }
+div#container div.wrapper { margin-left: -5px; width: 996px; }
+ul.controller { display: none; }
+
+/*
+3c] Named Styles
+*/
+
+/* fix to re-bring-in default styles for tinymce divs */
+.tinymce strong { font-weight: bold; }
+.tinymce em { font-weight: bold; }
+.tinymce ul { list-style-type: disc; }
+.tinymce ol { list-style-type: decimal; }
+.tinymce li { margin: 0 0 20px 20px; }
+
+div.module { width: 322px; height: 236px; margin: 0 0 10px 10px; background-color: #fff; float: left; position: relative; overflow: hidden; }
+div.module.expanded { width: 654px; height: 482px; }
+div.module.expandable { cursor: pointer; }
+
+div.module small { position: absolute; left: 10px; top: 10px; font-weight: normal; text-decoration: underline; text-transform: uppercase; }
+div.module.expanded small { display: none; }
+
+div.module.movies { background-image: url(/assets/images/bg-movies.jpg); }
+div.module.movies iframe { display: none; }
+div.module.movies object, div.module.movies embed { display: none; }
+div.module.expanded.movies { background-image: none; }
+div.module.expanded.movies iframe { display: block; }
+div.module.expanded.movies object, div.module.expanded.movies embed { display: block; }
+
+div.module.demo ul.slideshow li img { width: 322px; height: 236px; }
+div.module.demo ul.slideshow li { display: block; width: 654px; height: 482px; float: left; }
+div.module.demo ul.controller li { display: none; }
+
+div.module.demo.expanded div.slideshow_container { display: block; width: 654px; height: 482px;  }
+div.module.demo.expanded ul.controller { display: block; width: 654px; height: 482px;  }
+div.module.demo.expanded { position: relative; }
+div.module.demo.expanded ul.slideshow { margin-left: 0; }
+div.module.demo.expanded ul.slideshow img { width: 654px; height: 482px; }
+div.module.demo.expanded ul.controller { display: block; width: 654px; height: 482px; z-index: 100; position: absolute; top: 0; left: 0; }
+div.module.demo.expanded ul.controller li.next { position: absolute; background-color:white; opacity: 0; filter: alpha(opacity=0); z-index: 10; display: block; width: 654px; height: 482px; text-indent: -99999px; cursor: pointer; }
+
+div.module.about div.inner { padding: 30px; }
+div.module.about.expandable div.inner { padding-top: 40px; }
+div.module.about.expandable div.inner { padding-top: 40px; }
+div.module.about.expandable p { font-size: 30px; font-family: Times; font-weight: bold; }
+
+div.module.about.expanded div.inner { font-size: 20px; font-family: Times; font-weight: bold; }
+
+@-moz-document url-prefix() {
+	div.module.about.expanded div.inner { font-weight: 400; }
+}
+
+div.module.expandable div.content { display: none; }
+div.module.expanded div.summary { display: none; }
+
+div.module.people div.inner { padding: 30px; }
+div.jscrollpane { height: 422px; width: 594px; overflow-y: scroll; }
+div.module.people.expandable div.inner { padding-top: 40px; }
+div.module.people p { font-size: 20px; font-family: Times; font-weight: bold; padding-bottom: 25px;	 }
+
+div.module.people ul { margin: 20px 0 0 20px; list-style: disc; }
+div.module.people ul li { margin-bottom: 20px; }
+div.module.about ul { margin: 20px 0 0 20px; list-style: disc; }
+div.module.about ul li { margin-bottom: 20px; }
+.smallcaps { text-transform: uppercase; font-size: 12px; }
+
+div.module.signup div.inner { padding: 40px 15px 15px 30px; }
+div.module.signup form { overflow: auto; margin-bottom: 15px; }
+div.module.signup form input { font-size: 20px; }
+div.module.signup form div.result { font-size: 20px; padding: 3px; }
+div.module.signup form input#email { border-width: 0; padding: 3px; width: 200px; height: 24px; float: left; margin-right: 3px; }
+div.module.signup form input#submit { float: left; width: 50px; height: 30px; border: 1px outset #ccc; font-family: inherit; color: inherit; }
+div.module.signup a { color: inherit; padding-left: 46px; display: block; height: 40px; margin-bottom: 10px; font-size: 16px; line-height: 40px; }
+div.module.signup a#twitter { background: url(/assets/images/twitter.png) top left no-repeat; }
+div.module.signup a#facebook { background: url(/assets/images/facebook.png) top left no-repeat; }
+div.module.signup a#email { background: url(/assets/images/email.png) 2px 4px no-repeat; }
+
+div.module.store img { position: absolute; top: 75px; left: 36px; }
+
+div.module.expandable.news { background-image: url(/assets/images/bg-news.gif); }
+div.module.news.expanded div.inner { padding: 30px; font-size: 20px; font-family: Times; font-weight: bold; }
+div.module.news.expanded div.inner p { margin-bottom: 20px; }
+
+div.module.expandable.wallpapers { background-image: url(/assets/images/bg-wallpapers.jpg); }
+div.module.expanded.wallpapers div.inner { 
+	padding: 40px;
+	font-size: 34px; font-family: Times; font-weight: bold;
+}
+
+div.module.expanded.wallpapers ul { font-family: Arial; font-size: 13px; font-weight: normal; margin-top: 15px; font-size: 14px; }
+div.module.expanded.wallpapers ul li { position: relative; height: 131px; margin-bottom: 20px; } 
+div.module.expanded.wallpapers ul li img { position: absolute; left: 0; } 
+div.module.expanded.wallpapers div.title { color: #19366b; position: absolute; bottom: 60px; left: 144px; width: 300px; }
+div.module.expanded.wallpapers div.date { color: #19366b; position: absolute; bottom: 40px; left: 144px; width: 300px; }
+div.module.expanded.wallpapers div.links { color: #19366b; position: absolute; bottom: 0; left: 144px; width: 300px; }
+div.module.expanded.wallpapers div.links a { color: #19366b; }
+div.module.expanded.wallpapers div.links a:hover { text-decoration: underline; }
+
+
+div.jscrollpane { outline: none; }
+div.jspVerticalBar, div.jspTrack { background-color: transparent; width: 10px; }
+div.jspDrag { background-color: #fff; opacity: .3; filter: alpha(opacity=30);}
+div.jspCap { height: 0; display: none; }
+
+/*
+3d] Page-Specific Styles
+
+4] MEDIA QUERIES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media print {
+
+}
+
+/* handheld */
+@media only screen and (min-width: 480px) {
+
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* ordinary screen */
+@media only screen and (min-width: 975px) {
+
+}
+
+/* large screen */
+@media only screen and (min-width: 1382px) {
+
+}
+
+/* apple retina display */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+}
