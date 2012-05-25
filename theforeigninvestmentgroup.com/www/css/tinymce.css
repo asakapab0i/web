@@ -1,0 +1,5 @@
+body { margin:5px; /*background:url(/images/world-map-bm.gif) center top no-repeat;*/ font:14px/18px Times; }
+a { color:rgb(7,151,91); cursor:pointer; outline:none; }
+span.heading { font:bold 14px/20px Arial; color:rgb(7,151,91); margin:20px 0px 0px 0px; }
+p { margin:0px 0px 10px 0px; }
+ul li { margin-bottom:10px; }

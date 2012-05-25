@@ -1,0 +1,37 @@
+body { margin:0; background:url(/images/background.png) center top no-repeat; font:14px/18px Times; }
+a { color:rgb(7,151,91); cursor:pointer; outline:none; }
+h3, span.heading { font:bold 14px/20px Arial; color:rgb(7,151,91); margin:20px 0 0 0; }
+p { margin:0 0 10px 0; }
+img { border: 0; }
+
+a.edit { font:16px/60px Arial; color:#aaa; text-transform:uppercase; text-decoration:none; border-top:2px dashed #ddd; padding:10 20px 0 0; }
+a.edit:hover { color:rgb(7,151,91); }
+
+#bg { overflow:auto; width:800px; margin:0 auto; }
+#container { width:756px; margin:22px; overflow:auto; }
+
+#header { height:168px; border-width:2px 0 2px 0; border-color:rgb(7,151,91); border-style:solid; position:relative; }
+#header img { margin:10px 0 0 0; }
+
+#header ul { margin:0 0 0 20px; padding:0;}
+#header ul.nav { list-style-type:none; margin:0; padding:0; position:absolute; top:14px; left:400px; text-transform:uppercase; font:11px/14px Arial; }
+#header ul li { margin: 0 0 2px 0; display: block; overflow: auto; }
+#header ul li ul { display: none; }
+#header ul li:hover ul { display: block; }
+#header ul li a { text-decoration:none; padding:1px 3px 1px 3px; }
+#header ul li a:hover { background-color:#ced2d1; }
+#header ul li a.selected { background-color:rgb(7,151,91); color:#fff; }
+
+#page #left { float:left; margin-top:12px; width:244px; font:italic 26px/27px Times; }
+#page #right { float:left; margin:12px 0 0 12px; width:500px; overflow:hidden; }
+#page #right img { margin-right:-100px; }
+#page #right ul li { margin-bottom:10px; }
+body.about #page #right img { float:left; clear:left; margin:0 12px 8px 0; }
+
+body.faqs span.heading { cursor:pointer; }
+body.faqs ul { position:relative; }
+body.faqs div.hidden { display:none; }
+
+body.model form div.field { padding: 10px;  }
+body.model form div.field ul { margin: 0; padding: 0; list-style: none; }
+body.model form div.field ul label { margin-left: 4px; }
