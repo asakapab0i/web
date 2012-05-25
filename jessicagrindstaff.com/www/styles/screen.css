@@ -1,0 +1,24 @@
+body, table { margin:0px; color:#422128; font-family:georgia, serif; font-size:10.5pt; line-height:20px; } 
+a, input, textarea { outline:none; }
+
+.field { background-color:#fff; border:1px solid #ddd; font-family:Georgia; color:#555; padding:4px; margin:0px; font-size:13px; }
+input.field { width:220px; display:inline; margin-right:12px; }
+input.button { color:#422128; background-color:#fff; font-family:courier; font-size:12px; padding:3px; border:1px solid #ccc; margin:0px; cursor:pointer; }
+textarea.field { width:500px; height:200px; }
+
+a:link    { color:#D34865; }
+a:visited { color:#D34865; }
+a:active  { color:#D34865; }
+a:hover   { color:#D34865; }
+
+a.old:link    { color:#0000EE; }
+a.old:visited { color:#0000EE; }
+a.old:active  { color:#551A8B; }
+a.old:hover   { color:#551A8B; }
+
+h1 { font-size:19px; font-weight:bold; }
+
+.caption { color:#777; font-size:10px; }
+
+ul.thumbnails { margin:0px; padding:0px; list-style-type:none; }
+ul.thumbnails li { float:left; margin:0px 7px 7px 0px; }
