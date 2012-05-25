@@ -1,0 +1,41 @@
+body { background-color:#fff; margin:0px; padding:0px; font:13px/16px Arial; }
+#container { margin:20px; width:951px; position:relative; }
+
+ul.nav { list-style:none; margin:0px; padding:0px; }
+ul.nav li a { display:block; width:100px; }
+a { outline:none; text-decoration:none; cursor:pointer; }
+.super  { font-size:7px; vertical-align:top; line-height:10px; }
+
+#header					{ overflow:auto; margin-bottom:10px; }
+#header #logo			{ float:left; width:211px; }
+#header div.section		{ float:left; width:201px; overflow:auto; margin-right:20px; }
+#header div.tag			{ float:left; margin-right:10px; }
+#header div.options		{ float:left; visibility:hidden; }
+#header div.options a:hover, div.options a.selected { color:#292b44; }
+
+body.paintings #header div.paintings div.options, #header div.paintings:hover div.options { visibility:visible; }
+#header div.paintings, #header div.paintings a, body.paintings #left span.top { color:#e695c0; } /* pink */
+
+body.audio #header div.audio div.options, #header div.audio:hover div.options { visibility:visible; }
+#header div.audio, #header div.audio a { color:#69c074; } /* green */
+
+body.info #header div.info div.options, #header div.info:hover div.options { visibility:visible; }
+#header div.info, #header div.info a { color:#8e8f7f; } /* grey */
+
+#left { float:left; width:231px; min-height:200px; }
+#left a { color:#e695c0; cursor:pointer; }
+#left a:hover, #left a.selected { color:#292b44; }
+#left a.selected { cursor:default; }
+#left .separator { margin-bottom:17px; }
+#left #text { margin:0px; padding:0px; margin-bottom:30px; }
+#left #description { width:200px; }
+#left #gallery img { width:96px; height:96px; display:inline; margin:0px 10px 9px 0px; padding:0px; border:none; }
+
+#main { float:left; margin-left:-20px; position:relative; width:626px; line-height:18px; min-height:200px; }
+#main #mininav { height:20px;}
+#main #mininav a { color:#e695c0; }
+#main #mininav a:hover { color:#292b44; }
+#main img { margin-bottom:10px; }
+#main .separator { margin-bottom:7px; }
+
+body.info #main img { float:left; margin:0px 16px 0px 0px; }

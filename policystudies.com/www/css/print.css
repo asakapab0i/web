@@ -1,0 +1,81 @@
+html, body { height:100%; }
+body { line-height:19px; }
+body, input { margin:0px; font-family:Arial; font-size:14px; }
+input, a { outline:none; }
+a { color:#003399; text-decoration:none; cursor:pointer; }
+a:hover { text-decoration:underline; }
+
+a.cms { color:#fff; background-color:#557799; padding:5px 9px 5px 9px; font-weight:bold; font-size:13px; text-transform:uppercase; border:1px solid #99aabb; }
+a.cms:hover { text-decoration:none; background-color:#6688aa; }
+
+div.snippet { cursor:pointer; display:block; }
+div.snippet:hover { border:2px dashed #666; padding:5px 5px 0px 5px; margin:-7px -7px -16px -7px; background-color:#eee; }
+
+p { margin:0px 0px 14px 0px; }
+
+#google { display:none; }
+
+#footer { position:absolute; bottom:10px; width:100%; clear:none; font-size:11px; color:#999; padding-top:10px; border-top:1px solid #eee; }
+
+/* database snippets */
+/*site tagline*/	#snippet_1 { position:absolute; width:350px; top:73px; font-style:italic; font-size:18px; color:#333366; line-height:26px; }
+/*home blurb*/		#snippet_2 { color:#555; font-size:15px; }
+
+/* home page */
+body.home { text-align:center; }
+#home { width:818px; text-align:left; overflow:auto; position:relative; background-color:#fff; min-height:100%; margin:0px auto; }
+
+#home div.column { width:350px; float:left; padding-bottom:40px; }
+#home #column_left { margin-left:32px; }
+#home #column_right { margin-left:54px; }
+#home div.band { background-color:#98cbcb; margin:20px -32px 20px -32px; padding:20px 32px 20px 32px; }
+
+#home #column_left img.logo { position:absolute; top:60px; }
+#home #column_left div.band { position:absolute; top:140px; margin-right:-40px;}
+#home #column_left div.studies { margin-top:260px; }
+
+#home #column_right div.band { position:absolute; top:183px; margin-left:-40px; padding-left:40px; }
+#home #column_right div.studies { margin-top:300px; }
+
+#home ul { list-style-type:none; margin:0px; padding:0px; overflow:auto; }
+#home ul li { width:116px; float:left; margin:0px 1px 0px 0px; padding:0px; }
+#home ul li.last { margin-right:0px; }
+#home ul li a { color:#222; text-align:center; text-transform:uppercase; font-weight:bold; padding:0px; background-color:#fff; width:116px; text-align:center; display:block; height:30px; line-height:30px; 	}
+#home ul li a:hover { background-color:#ffffcc; text-decoration:none; }
+
+#home #footer { text-align:center; }
+
+/* sub pages */
+#container { width:818px; position:relative; min-height:100%; background-color:white; }
+
+#banner { position:absolute; top:0px; left:0px; background-color:#fff; z-index:2; border-bottom:1px solid #fff; }
+#banner img { margin:0; }
+#banner ul { display:none; }
+
+#page { border-left:0; position:absolute; top:0px; left:0px; min-height:100%; }
+#inner { padding:50px 20px 60px 20px; }
+
+h1 { overflow:auto; font-size:27px; font-weight:normal; margin:25px 0px 20px 0px; line-height:30px; }
+/* h2 { font-size:24px; margin:-10px 0px 20px 0px; line-height:26px; color:#6e6ebb; } */
+h3 { font-size:15px; margin:20px 0px 5px 0px; }
+
+h1 a { display:block; width:128px; float:left; }
+h1 div { float:left; width:440px; }
+ul.text_list { list-style-type:none; margin:0px; padding:0px; }
+
+table { width:578px; margin-top:15px; }
+table thead { display:none; }
+table tr.group td { font-weight:bold; padding-top:20px; }
+table td { padding:3px; border-bottom:1px solid #f4f4f4; vertical-align:top; }
+table td.phone { text-align:right; }
+
+table.studies td.release_date { height:38px; color:#999; width:130px; text-align:right; padding-right:5px; font-size:12px; }
+table.studies td.title { width:548px; }
+
+dl { clear:left; overflow:auto; margin-bottom:10px; }
+dl dt { float:left; width:130px; margin:0px 0px 10px 0px; padding:0px; clear:left; color:#999; }
+dl dd { float:left; width:428px; margin:0px 0px 10px 0px; padding:0px; clear:none; }
+dl dd ul { list-style-type:none; margin:0px; padding:0px; font-size:12px; }
+dl dd ul li { margin-bottom:3px; overflow:auto; }
+dl dd ul li a { display:block; padding-left:20px; position:relative; float:left; }
+dl dd ul li a img { position:absolute; left:0px; }
