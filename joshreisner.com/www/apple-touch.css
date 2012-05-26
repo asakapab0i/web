@@ -1,0 +1,8 @@
+#header h1 { font-size:42px; font-family:Arial, Helvetica, sans-serif; }
+
+#content h1 { font-size:36px; font-family:Arial, Helvetica, sans-serif; }
+#content h2 { font-size:28px; font-family:Arial, Helvetica, sans-serif; }
+#sidebar h2 { font-size:18px; font-family:Arial, Helvetica, sans-serif; }
+
+ul.navigation li a { font-family:Arial, Helvetica, sans-serif; font-size:20px; }
+ul.navigation li.selected a, ul.navigation li:hover a { font-size:27px; }

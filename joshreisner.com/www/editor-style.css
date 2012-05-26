@@ -1,0 +1,32 @@
+html .mceContentBody {
+	max-width: 830px;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size:15px;
+	line-height:18px;
+	color:#555;
+}
+
+a { color:#8f492f; text-decoration:none; outline:none; }
+a:hover { text-decoration:underline; }
+img { border:0px; }
+fieldset { padding:0px; margin:0px; border:0px; }
+input { font-family:Arial, Helvetica; border-width:1px; border-style:solid; height:auto; font-size:12px; padding:4px; outline:none; }
+textarea { font-family:Arial, Helvetica, sans-serif; }
+label.hidden { visibility:hidden;}
+strike { color:#999; }
+
+h1 { font-size:30px; font-family: museo-slab-1,museo-slab-2; font-weight:100; margin:0px 0px 23px 0px; padding:0px; color:#333; }
+h2 { font-size:20px; font-family: museo-slab-1,museo-slab-2; font-weight:100; margin:0px 0px 20px 0px; padding:0px; color:#aaa; line-height: 30px; }
+h2 a { font-size:30px; margin-right: 10px; }
+h3 { font-size:16px; font-weight:300; margin:0px; padding:0px; color:#444; margin-bottom:-10px; }
+	
+	/*posts*/
+.entry { line-height: 22px; }
+blockquote { color:#888; font-size:12px; border-left:2px dotted #ccc; padding-left:10px; margin-left:20px; }
+blockquote h3 { font-weight:bold; font-size:13px; }
+ul li { margin-bottom:10px; }
+a.mp3 { background-color:#f3f3c5; padding:2px; font-weight:normal; }
+img.screenshot { margin:-10px 0px -18px -20px; width:545px; height:453px; }	

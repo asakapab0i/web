@@ -1,0 +1,71 @@
+/*
+Theme Name: Wendy Kidd Studio
+Theme URI: http://wendykiddstudio.com/
+Description: A custom WordPress theme designed by Gail Marowitz and programmed by Josh Reisner
+Version: 0.1
+Author: Gail Marowitz and Josh Reisner
+Author URI: http://joshreisner.com/
+Tags: orange, one column
+
+	Wendy Kidd Studio
+	http://wendykiddstudio.com/
+
+	A custom WordPress theme designed by Gail Marowitz and programmed by Josh Reisner
+
+	The theme is not publicly licensed
+
+*/
+
+body { width:100%; height:100%; background-color:#ff6600; margin:0px; color:#fff; font:14px/20px Georgia,serif; }
+body.home { background:#ff6600 url(images/splash.png) no-repeat fixed center; }
+body.home p.edit { display:none; }
+a { color:#fff; text-decoration:none; outline:none; }
+a:hover { text-decoration:underline; cursor:pointer; }
+a.post-edit-link { text-transform:uppercase; }
+img { border:0px; }
+
+h2 { text-align:center; line-height:13px; font-size:17px; text-transform:uppercase; margin:0px 0px 30px 0px; vertical-align:top; }
+h2 img { margin:3px 10px -3px 10px; }
+
+#page { width:593px; margin:0px auto; padding-bottom:65px; }
+#header { text-align:center; padding:20px 0px 30px 0px; }
+
+#navigation { position:fixed; bottom:0px; left:0px; width:100%; height:65px; text-align:center; background-color:#ff6600; }
+#navigation ul { width:510px; list-style-type:none; margin:22px auto; } 
+#navigation ul li { float:left; width:83px; height:21px; margin-right:2px; }
+#navigation ul li a { width:83px; height:21px; display:block; color:transparent; }
+#navigation ul li a:hover { text-decoration:none; }
+#navigation ul li.page-item-11 { margin-right:0px; }
+#navigation ul li.page-item-3 a { background-image:url(images/navigation/home.png); }
+#navigation ul li.page-item-2 a { background-image:url(images/navigation/about.png); }
+#navigation ul li.page-item-5 a { background-image:url(images/navigation/gallery.png); }
+#navigation ul li.page-item-33 a { background-image:url(images/navigation/products.png); }
+#navigation ul li.page-item-8 a { background-image:url(images/navigation/location.png); }
+#navigation ul li.page-item-10 a { background-image:url(images/navigation/blog.png); }
+#navigation ul li.page-item-11 a { background-image:url(images/navigation/contact.png); }
+
+div.post h2 { text-align:left; margin:0px; font-size:28px; text-transform:none; line-height:32px; }
+div.post small { font-style:italic; font-size:14px; }
+.aligncenter { display:block; margin:0px auto 20px auto; }
+
+/*store*/
+div.products_page_container div.default_product_display div.textcol div.imagecol { display:none; background-image(images/product_backing.png); background-repeat:no-repeat; position:relative; width:141px; height:118px; }
+img.product_image { }
+
+/*nextgen gallery/
+div.ngg-albumoverview, div.ngg-galleryoverview { overflow:auto; }
+div.ngg-album-compact { width:160px; height:240px; margin:10px; float:left; }
+div.ngg-album-compact p, div.piclenselink { display:none; }
+div.ngg-album-link { width:160px; }
+div.ngg-gallery-thumbnail-box { width:160px; float:left; margin:10px; }*/
+
+/*fancy gallery*/
+div.fancy { overflow:auto; margin-left:-15px; }
+div.fancy a { display:block; border:6px double black; overflow:hidden; width:160px; height:130px; }
+div.fancy a img { height:130px; width:160px; }
+div.fancy div.white { float:left; background-color:#fff; margin:0px 15px 30px 15px; overflow:hidden; width:172px; height:142px; }
+
+ul.gallery { overflow:auto; list-style-type:none; margin:0px 0px 0px -15px; padding:0px;  }
+ul.gallery li { margin:0px 15px 30px 15px; padding:0px; float:left; background-color:#fff; }
+ul.gallery li a.img { display:block; background-color:#fff; border:6px double black; overflow:hidden; width:160px; height:130px; }
+ul.gallery li a.img img { height:130px; width:160px; }

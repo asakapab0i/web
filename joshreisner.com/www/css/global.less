@@ -1,0 +1,392 @@
+/* 1_ FONTS */
+@font-face {
+    font-family: 'MuseoSlabLight';
+    src: url('../fonts/museo_slab_100-webfont.eot');
+    src: url('../fonts/museo_slab_100-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museo_slab_100-webfont.woff') format('woff'),
+         url('../fonts/museo_slab_100-webfont.ttf') format('truetype'),
+         url('../fonts/museo_slab_100-webfont.svg#MuseoSlab100') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MuseoSlabBold';
+    src: url('../fonts/museo_slab_700-webfont.eot');
+    src: url('../fonts/museo_slab_700-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museo_slab_700-webfont.woff') format('woff'),
+         url('../fonts/museo_slab_700-webfont.ttf') format('truetype'),
+         url('../fonts/museo_slab_700-webfont.svg#MuseoSlab700') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 2_ MIXINS */
+.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
+	-webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+	-moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+	box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+
+.rounded(@radius: 2px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+	-moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+}
+
+.opacity(@opacity: 0.5) {
+	@ieOpacity: @opacity * 100;
+	-moz-opacity: @opacity;
+	-khtml-opacity: @opacity;
+	-webkit-opacity: @opacity;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{ieOpacity})";
+	filter: ~"alpha(opacity=@{ieOpacity})";
+	opacity: @opacity;
+}
+
+@lightgray	: #E7E6EA;
+@mediumgray : #999;
+@red		: #8F492F;
+@darkgray	: #333;
+@brown		: #473D2B;
+@smoke		: #F7F7F7;
+@white		: #FFF;
+@yellow		: #f3f3c5;
+
+/* 3_ global tags */
+html, body {
+    height: 100%;
+}
+
+body {
+	margin: 0; padding: 0;
+	background: @lightgray url(../images/grid-faded.png) repeat-x;
+}
+
+body, p { color: @darkgray; font-size: 14px; line-height: 20px; }
+
+/* global tag stylings */
+a {
+	color: @red; text-decoration: none; outline: none; cursor: pointer;
+	img { border: 0; cursor: pointer; }
+	&:hover { color: @red; text-decoration: underline; }
+}
+
+form {
+	fieldset { padding: 0; margin: 0; border: 0; }
+	input { border-width: 1px; border-style: solid; height: auto; padding: 4px; outline: none; }
+	textarea { }
+}
+
+label.hidden { visibility: hidden; } /* when? */
+strike		{ color: @mediumgray; }
+	
+.alignleft { float: left; }
+.alignright { float: right; }
+
+img#wpstats { display: none; }
+			
+	
+/*header area*/
+div.header {
+	height: 80px; line-height: 90px;
+	h1 {
+		font-family: MuseoSlabBold; font-weight: normal; font-size: 40px; margin: 30px 0 0 15px; padding: 0;
+		a { 
+			color: @brown;
+			&:hover { text-decoration: none; }
+		}
+	}
+}
+		
+	
+/*tabs at top*/
+div.nav_categories {
+	display: block; margin-bottom: 0; 
+	ul {
+		list-style-type: none; margin: 0; padding: 0; height: 45px;
+		li {
+			background-color: @smoke; padding: 0 17px 0 17px; display: block; float: left; margin: 14px 1px 1px 0; height: 30px; line-height: 30px;
+			a {
+				font-family: MuseoSlabLight; font-weight: normal; color: @mediumgray; font-size: 16px;
+				&:hover { text-decoration: none; }
+			}
+			&.selected {
+				background-color: @white; height: 45px; margin: 0 1px 0 0; line-height: 54px;
+				a { font-size: 20px; }		
+			}
+			&:hover {
+				background-color: @white; height: 45px; margin: 0 1px 0 0; line-height: 54px;
+				a { font-size: 20px; }
+			}
+		}
+	}
+}
+
+/* content section == main content area on left */
+	div.content {
+		background-color: @white; min-height: 100%;
+
+		div.navigation { padding: 20px; overflow: auto; }
+		
+		div.post {
+			line-height: 22px; margin: 20px 20px 40px 20px;
+			
+			h1 { font-size: 30px; font-family: MuseoSlabLight; font-weight: normal; margin: 0 0 23px 0; }
+			h2 { font-size: 20px; font-family: MuseoSlabLight; font-weight: normal; margin: 0 0 10px 0; line-height: 30px; }
+			h2 a { font-size: 30px; margin-right: 10px; }
+			
+			img, iframe, video { max-width: 100%; width: auto\9; }
+			img.screenshot { margin: -10px 0 -18px -20px; }
+			
+			p { margin-bottom: 20px; }
+			
+			div.wp-caption {
+				position: relative; margin-bottom: 20px;
+				p.wp-caption-text { 
+					display: none; position: absolute; bottom: 0; right: 0; background: @lightgray; margin: 0; padding: 5px 8px; color: @darkgray; border-left: 1px solid @white; border-top: 1px solid @white; font-size: 13px; 
+					.opacity(.8);
+				}
+				&:hover p.wp-caption-text { display: block; }
+			}
+						
+			blockquote {
+				color: @mediumgray; font-size: 13px; border-left: 2px dotted @lightgray; padding-left: 10px; margin-left: 20px; 
+				p { font-size: 13px; color: @mediumgray; }
+				h3 { font-weight: bold; font-size: 13px; }
+			}
+			
+			div.meta { 
+				border-top: 1px dashed @lightgray; padding-top: 7px; font-size: 13px; overflow: auto; color: @lightgray; 
+				a { white-space: nowrap; color: @lightgray; }
+			}
+			
+			.alignleft { float: left; margin-bottom: 30px; }
+			.alignright { float: right; text-align: right; width: 250px; }
+			
+			ul, ol {
+				margin: 0 0 25px 30px;	
+				li { margin-bottom: 10px; }
+			}
+			
+			a.mp3 { background-color: @yellow; padding: 2px; font-weight: normal; }
+			
+			div.gallery {
+				margin: 0 0 5px -15px; overflow: auto;
+				
+				/* can't nest these because sometimes wordpress will forget the dl */
+				dl { float: left; -webkit-margin-before: 0; -webkit-margin-after: 0; margin: 0; padding:0; overflow: hidden; }
+				dt { 
+					float: left; margin: 0; padding: 0; 
+					a { 
+						margin: 0 0 15px 15px; padding: 0; display: block; border: 1px solid @lightgray; padding: 4px; .rounded(3); .drop-shadow();
+						img { margin: 0; padding: 0; display: block; 
+							width: 143px; height: 143px; 
+						}
+					}
+					a:hover { }
+				}
+				dd { margin: 0; padding:0; }
+				
+			}
+			
+			div#infscr-loading {
+				display: inline; float: left;
+				img { display: inline; float: left; }
+			}
+
+			/*404 page*/
+			ul.nospacing {
+				margin: 0; padding: 0; list-style-type: none; 
+				li { margin: 0; padding: 0; }
+			}
+
+		}
+		/* comments */
+		h3 {	
+			font-family: MuseoSlabBold; font-weight: normal; font-size: 16px;
+			clear: both; text-align: left; background-color: @yellow; padding: 8px 20px 7px 20px;
+			border-width: 1px 0; border-color: darken(@yellow, 20%); border-style: solid;
+			margin-bottom: 0;
+		}
+		
+		ol.commentlist {
+			margin: 0 0 10px 0; padding: 0; list-style: none; overflow: auto; 
+			li {
+				min-height: 96px; padding: 10px; border-bottom: 1px solid #eee;
+
+				div.comment_meta { 
+					margin-bottom: 7px; font-size: 13px; overflow: auto; color: #bbb; 
+					a { white-space: nowrap; color: #bbb; }
+				}
+				p { margin-left: 106px; }
+				img.avatar { float: left; clear: left; margin-right: 10px; }
+			}
+			li:last-child { border: 0; padding-bottom: 0; }
+		}
+
+		form#commentform {
+			padding: 20px;
+			input { width: 220px; border: 1px solid #ccc; background-color: #eee; }
+			p.comment-form-comment { 
+				label { display: none; }
+				textarea { padding: 4px; width: 97%; border: 1px solid #ccc; background-color: #eee; }
+			}
+			
+			#submit { width: 150px; height: auto; border-color: #ccc; }
+			#submit:hover { background-color: #fff; }
+			
+			p.form-allowed-tags { display: none; }
+			p.comment-subscription-form  {
+				overflow: auto;
+				input { float: left; margin-right: 4px; }
+				label { float: left; }
+			}
+		}
+	}
+	
+	
+
+	
+	/* contact form */
+	div.content form.cform { margin: 0; padding: 0; }
+	div.content ol.cf-ol { margin: 0; padding: 0; }
+	div.content ol.cf-ol li { margin: 0; padding: 0; }
+	/* div.content .cform { margin: 0; width: 410px; } */
+	div.content ol.cf-ol label { height: 20px; }
+	div.content ol.cf-ol input { background-color: #eee; border: 1px solid #ccc; width: 265px; height: 18px; color: #444; }
+	div.content ol.cf-ol textarea { margin-top: -24px; font-family: Courier; background-color: #eee; border: 1px solid #ccc; width: 502px; padding: 4px; height: 218px; color: #444;  }
+	div.content input.sendbutton { background-color: #eee; border: 1px solid #ccc; height: 26px; padding: 2px; color: #444; background-image: none; float: left; font-size: 14px; margin: 0; }
+	div.content #ll { visibility: hidden; }
+	
+	/* related posts */
+	div.related { color: @mediumgray; margin-bottom: 20px; }
+	div.related a { color: #b19d84; }
+	div.related p { margin: 0; padding: 0; }
+	div.related ol { list-style-type: none; margin: 0; padding: 0; }
+	div.related li { margin: 0; padding: 0; }
+
+	/* pagenavi */
+	div.wp-pagenavi { font-size: 13px; }
+	div.wp-pagenavi a { color: #555; }
+	div.wp-pagenavi span, div.wp-pagenavi a { display: block; width: auto; float: left; margin-right: 4px; border: 1px solid #ccc; padding: 3px 8px 2px 8px; }
+	div.wp-pagenavi span, div.wp-pagenavi a:hover { background-color: #eee; text-decoration: none; }
+	div.wp-pagenavi span.pages { display: none; }
+	div.wp-pagenavi span.extend { border-color: #fff; background-color: #fff; }
+	div.wp-pagenavi a.nextpostslink, div.wp-pagenavi a.previouspostslink { display: none; }
+
+/* sidebar section right side */
+	div.sidebar { 
+		padding-top: 50px; color: #444; font-size: 12px; 
+		a { color: #888; }
+
+		h2 { font-family: MuseoSlabLight; font-weight: normal; font-size: 16px; line-height: 1.5; }
+		h2 a { color: #444; }
+
+		/*search*/
+		li.widget_search {
+			form { display: block; border: 1px solid #ddd; background-color: #eee; height: 24px; width: 100%; padding: 3px 0; margin-right: -2px; }
+			label { 
+				overflow: hidden; text-indent: 100%; margin: 5px 0 0 4px; display: block; width: 16px; height: 16px; background: url(../bootstrap/img/glyphicons-halflings.png) -48px 0; float: left; 
+				.opacity();
+			}
+			input#s { margin: 0; padding: 0; height: 23px; width: 90%; font-size: 16px; color: #777; border: 0; background-color: transparent; float: left; 
+				-webkit-box-shadow: none;
+				-moz-box-shadow: none;
+				box-shadow: none; 
+			}
+			input#searchsubmit { display: none; }
+		}
+		
+		#archive_dropdown { margin: 0 0 0 -3px; border: 1px solid #ddd; background-color: #eee; }
+
+		/*latitude*/
+		li.google_latitude_image {
+			a { .opacity(.4); }
+			a:hover { .opacity(1); text-decoration: none; }
+			a img { border: 1px solid #fff; width: 100%; margin-right: -2px; }
+			p { margin: 2px 0 0 3px; font-size: 12px; color: #888; }
+			a:hover p { color: #444; }
+			span.date { margin-left: 4px; color: @mediumgray; }
+			a:hover span.date { color:#777; }
+		}
+
+	/*last.fm*/
+		ul.lastfm_list {
+			margin: 0 -6px 20px 0; padding: 0; overflow: auto; /*-6 one for the border that sticks out*/
+			li {
+				display: block; float: left; padding: 0; margin: 0 5px 5px 0; overflow: hidden; position: relative; 
+				a { 
+					display: block; overflow: hidden; 
+					img { background: #fff; border: 1px solid #fff; margin: 0; width: 106px; height: 106px; .opacity(.4); }
+					
+				}
+				span { display: none; position: absolute; background-color: #fff; font-size: 10px; z-index: 2; bottom: 0; left: 0; line-height: 12px; padding: 2px 4px 2px 4px; .opacity(.8); }
+			}
+			li:hover { 
+				img { .opacity(1); }
+				span { display: block; width: auto; }
+			}
+		}
+	}
+
+	
+	
+
+	/*lists*/
+	div.sidebar ul { list-style: none; margin: 0; padding: 0; }
+	div.sidebar > ul { padding-bottom: 20px; }
+	div.sidebar > ul > li { margin-bottom: 20px; }
+	div.sidebar ul li ul { margin: 0; }
+		
+	/*recommended reading*/
+	div.sidebar ul.gReader-list { color: @mediumgray; margin: 5px 0 20px 0; padding: 0; overflow: auto; }
+	div.sidebar ul.gReader-list li { margin-bottom: 5px; padding-left: 37px; position: relative; }
+	div.sidebar ul.gReader-list li div.gReader-date { width: 23px; text-align: right; position: absolute; top: 0; left: 0; font-size: 11px; }
+	div.sidebar ul.gReader-list div.gReader-source { display: inline; margin-left: 5px; }
+	div.sidebar ul.gReader-list li.grCredit { display: none; }
+	
+	div.sidebar li.gReader-item-7, div.sidebar li.gReader-item-8, div.sidebar li.gReader-item-9, div.sidebar li.gReader-item-10, div.sidebar li.gReader-item-11,
+	div.sidebar li.gReader-item-12, div.sidebar li.gReader-item-13, div.sidebar li.gReader-item-14, div.sidebar li.gReader-item-15, div.sidebar li.gReader-item-16,
+	div.sidebar li.gReader-item-17, div.sidebar li.gReader-item-18, div.sidebar li.gReader-item-19, div.sidebar li.gReader-item-20, div.sidebar li.gReader-item-21,
+	div.sidebar li.gReader-item-22, div.sidebar li.gReader-item-23, div.sidebar li.gReader-item-24, div.sidebar li.gReader-item-25, div.sidebar li.gReader-item-16,
+	div.sidebar li.gReader-item-27, div.sidebar li.gReader-item-28, div.sidebar li.gReader-item-29, div.sidebar li.gReader-item-30 { display: none; }
+	
+	div.post ul.gReader-list { color: #555; margin: 5px 0 20px 0; padding: 0; overflow: auto; }
+	div.post ul.gReader-list li { margin-bottom: 5px; padding-left: 37px; position: relative; }
+	div.post ul.gReader-list li div.gReader-date { width: 30px; text-align: right; position: absolute; top: 0; left: 0; }
+	div.post ul.gReader-list div.gReader-source { display: inline; margin-left: 5px; }
+	div.post ul.gReader-list li.grCredit { display: none; }
+	
+// Landscape phones and down
+@media (max-width: 480px) { 
+	object { display: none; }
+	div.row.nav_categories { display: none; }
+	div.content { padding-top: 1px; }
+	div.content div.post div.gallery dt a img { width: 122px; height: 122px; }
+	div.sidebar { padding: 20px; }
+	div.sidebar ul.lastfm_list li a img { width: 136px; height: 136px; }
+}
+
+// Landscape phone to portrait tablet
+@media (max-width: 768px) { 
+	div.row.nav_categories { display: none; }
+	div.content { padding-top: 1px; }
+	div.sidebar { padding-left: 20px; }
+/* 	div.content div.post div.gallery dt a img { width: 130px; height: 130px; } */
+}
+
+// Portrait tablet to landscape and desktop
+@media (min-width: 768px) and (max-width: 980px) {
+	div.sidebar ul.lastfm_list li a img { width: 79px; height: 79px; }
+
+}
+
+// Large desktop
+@media (min-width: 1200px) {
+	div.sidebar ul.lastfm_list li a img { width: 85px; height: 85px; }
+
+}	

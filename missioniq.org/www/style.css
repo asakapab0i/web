@@ -1,0 +1,54 @@
+/*
+Theme Name: MissionIQ
+Theme URI: http://missioniq.org
+Description: A custom theme for MissionIQ
+Version: 1.0
+Author: Josh Reisner
+Author URI: http://joshreisner.com
+*/
+a { color: #19ace3; }
+a:hover { cursor: pointer; }
+a.nocolor { color: inherit; }
+
+div.navbar ul.nav li.dropdown ul.dropdown-menu { margin-top: 0px; }
+div.navbar ul.nav li.dropdown:hover ul.dropdown-menu { display: block; }
+div.navbar ul.nav li.dropdown:hover .caret { border-top-color: #fff; }
+
+div.hero-unit { background-image: url(images/gears.png); background-repeat: no-repeat; background-position: 650px -40px; }
+
+div.banner { height: 60px; margin-bottom: 20px; background-image: url(images/gears-bg.png); }
+
+/* sidebar */
+div.sidebar { padding-top: 30px; }
+div.sidebar a { color: #777; display: block; }
+div.sidebar a:hover, div.sidebar .current_page_item a { text-decoration: none; color: #222; }
+
+div.sidebar i { opacity: 0; margin-right: 7px; }
+div.sidebar a:hover i, div.sidebar .current_page_item i { opacity: 1; }
+
+div.sidebar h3 { margin: 0 10px 8px 0; padding-bottom: 0px; font-size: 19px; font-weight: normal; }
+div.sidebar h3 i { margin-top: 2px; }
+
+div.sidebar ul.sidenav { margin: 0 0 20px 0; padding: 0; list-style-type: none; font-size: 14px; }
+div.sidebar ul.sidenav li { list-style-type: none; margin-right: 10px; padding: 9px 0; }
+div.sidebar ul.sidenav li i { margin-top: -2px; }
+
+div.sidebar i.icon-arrow-right { background-color: #eee; border: 1px solid #ccc; border-radius: 9px; height: 17px; width: 17px; background-position: -262px -95px; }
+
+div.sidebar div.custom { padding: 0 10px 0 28px; }
+
+/* content area */
+h1.title { margin: 23px 0 17px 0; font-weight: normal; }
+
+div.content { min-height: 300px; }
+div.content, div.content p { font-size: 14px; line-height: 20px; }
+div.content ul li { margin-bottom: 10px; }
+
+div.content ul.team { margin: 0; padding: 0; }
+div.content ul.team li { display: block; list-style-type: none; padding: 0 0 10px 110px; position: relative; }
+div.content ul.team li img { background-color: #ccc; border-radius: 7px; width: 90px; height: 120px; position: absolute; left: 0; top: 5px;  }
+
+/* footer */
+footer { text-align: center; }
+footer span.seedco { background-image: url(images/seedco.png); display: block; width: 322px; height: 56px; float: left; }
+footer span.salesforce { background-image: url(images/salesforce.png); display: block; width: 208px; height: 65px; float: right; }
