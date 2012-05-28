@@ -1,3 +1,4 @@
+@white		: #fff;
 @borders	: #636466;
 @text		: #636466;
 @blue		: #87b8d8;
@@ -48,15 +49,15 @@ div.container {
 		&.big { font-size: 20px; }
 		&.bump { padding-top: 30px; }
 		&.side {
-			padding: 40px 0;
+			padding-top: 40px;
 			ul {
 				list-style: none;
-				margin: 6px 0 0 0; padding: 0; 
+				margin: 6px 0 40px 0; padding: 0; 
 				li {
-					margin: 0 0 3px 0; 
+					margin: 0; 
 					a { display: block; padding: 3px 0 3px 17px; color: inherit; border-width: 1px 0; border-style: dotted; border-color: transparent; }
 					ul {
-						display: none; 
+						margin-bottom: 6px; display: none; 
 						li {
 							a { display: block; padding-left: 34px; }
 							&.last { margin-bottom: -4px; }
@@ -68,6 +69,11 @@ div.container {
 					}
 					&.descendant-selected { ul { display: block; } }
 				}
+			}
+			
+			div.description { 
+				padding: 2px 17px; background-color: @white; 
+				div.border { border-width: 1px 0; border-style: dotted; border-color: @borders; height: 3px; margin: 8px -17px; }
 			}
 		}
 	}
@@ -90,24 +96,28 @@ body.projects {
 			list-style: none; margin: 0; padding: 0;
 			li { float: left; }
 			&.controller {
-				li.arrows {
-					position: absolute; height: 561px; width: 200px; top: 0; text-indent: 100%; overflow: hidden; 
-					&.prev { 
-						left: 0; 
-						&:hover { background: url(/images/arrow-left.png) no-repeat 10px center; }
+				float: left; cursor: pointer; overflow: auto; padding: 0 20px 0 180px; 
+				li {
+					&.number { 
+						margin: 10px; font-style: italic; 
+						&.selected { font-weight: bold; }
 					}
-					&.next { 
-						right: 0; 
-						&:hover { background: url(/images/arrow-right.png) no-repeat 168px center; }
+					&.arrows {
+						position: absolute; height: 561px; width: 200px; top: 0; text-indent: 100%; overflow: hidden; 
+						&.prev { 
+							left: 0; 
+							&:hover { background: url(/images/arrow-left.png) no-repeat 10px center; }
+						}
+						&.next { 
+							right: 0; 
+							&:hover { background: url(/images/arrow-right.png) no-repeat 168px center; }
+						}
 					}
 				}
-				
 			}
 		}
-				
-		
 	}
-	
+	div.caption { float: left; padding: 10px; font-style: italic; }
 }
 
 div	.press .column {

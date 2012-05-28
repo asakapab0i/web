@@ -36,6 +36,9 @@ if (home()) {
 		</div>
 		';
 } elseif ($page) {
+	cms_bar_link('/login/object/edit/?id=' . $page['id'] . '&object_id=1', 'Edit Page');
+	cms_bar_link('/login/object/edit/?object_id=1', 'New Page');
+
 	$side_images = db_table('SELECT id, title, ' . db_updated() . ' FROM user_side_images WHERE is_active = 1 AND is_published = 1 AND page_id = ' . $page['id'] . ' ORDER BY precedence');
 	foreach ($side_images as &$s) $s = draw_img(file_dynamic('user_side_images', 'image', $s['id'], 'jpg', $s['updated'])) . draw_div_class('caption', $s['title']);
 	
@@ -75,7 +78,7 @@ if (home()) {
 				' . draw_nav_nested($section['children'], false) . '&nbsp;
 			</div>
 			<div class="span10 content">
-				<div class="breadcrumbs">' . drawBreadcrumbs() . '</div>
+				<!--<div class="breadcrumbs">' . drawBreadcrumbs() . '</div>-->
 
 				<h1>' . $page['title'] . '</h1>
 
@@ -93,7 +96,7 @@ if (home()) {
 		';
 } else {
 	//404 error
-	cms_bar_link('/login/object/edit/?object_id=1&url=' . $request['path'], 'Create Page Here');
+	cms_bar_link('/login/object/edit/?object_id=1&url=' . $request['path'], 'New Page');
 
 	echo '
 		<div class="row page">

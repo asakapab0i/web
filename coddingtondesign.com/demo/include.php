@@ -1,10 +1,13 @@
 <?php
 extract(joshlib());
 
-function drawFirst($title='') {
+function drawFirst($title=false, $project_description=false) {
+
+	$projects = db_table('SELECT id, title FROM user_projects WHERE is_active = 1 AND is_published = 1 ORDER BY precedence');
+	foreach ($projects as &$p) $p = array('url'=>'/projects/?id=' . $p['id'], 'title'=>$p['title'], 'children'=>array());
 
 	$pages = array(
-		array('url'=>'/projects/', 'title'=>'Projects', 'children'=>array()),
+		array('url'=>'/projects/', 'title'=>'Projects', 'children'=>$projects),
 		array('url'=>'/about/', 'title'=>'About', 'children'=>array()),
 		//array('url'=>'/news/', 'title'=>'News', 'children'=>array()),
 		array('url'=>'/services/', 'title'=>'Services', 'children'=>array()),
@@ -17,7 +20,7 @@ function drawFirst($title='') {
 		array('url'=>'/contact/', 'title'=>'Contact', 'children'=>array()),
 		array('url'=>'http://girlymodern.com/', 'title'=>'Blog', 'children'=>array())
 	);
-
+	
 	$return = url_header_utf8() . draw_doctype() . draw_container('head',
 		draw_meta_utf8() . 
 		draw_title($title) . 
@@ -34,9 +37,10 @@ function drawFirst($title='') {
 			<div class="column span3"></div>
 		</div>
 		<div class="page">
-			<div class="column side">
-				' . draw_nav_nested($pages) . '
-			</div>
+			<div class="column side">' . 
+			draw_nav_nested($pages, 'nav', 1, 'path_query') . 
+			($project_description ? draw_div('description', draw_div('border') . $project_description) : '') . 	
+			'</div>
 		';
 	return $return;
 }

@@ -3,7 +3,6 @@ extract(joshlib());
 
 $pages = getPages();
 if ($page = db_grab('SELECT id, title, content, description, side_caption, ' . db_updated() . ' FROM user_pages WHERE url = \'' . $request['path'] . '\' AND is_active = 1 AND is_published = 1')) {
-	cms_bar_link('/login/object/edit/?id=' . $page['id'] . '&object_id=1', 'Edit Page');
 	$page		= array_merge($page, getPage($page['id']));
 	$section	= getSectionAncestor($page['id']);
 }
@@ -43,6 +42,15 @@ function drawFunction($function) {
 		return draw_list($staff, 'staff');
 		
 		case 'contact-form' :
+		
+		$options = db_array('SELECT title FROM user_contact_professions WHERE is_active = 1 ORDER BY precedence');
+		foreach ($options as &$o) $o = draw_tag('option', false, $o);
+		$professions = implode('', $options);
+		
+		$options = db_array('SELECT title FROM user_contact_sectors WHERE is_active = 1 ORDER BY precedence');
+		foreach ($options as &$o) $o = draw_tag('option', false, $o);
+		$sectors = implode('', $options);
+		
 		return '
 		<p>
 		<i class="icon-map-marker"></i> <a href="http://maps.google.com/maps?q=30-30+Thomson+Avenue,+Long+Island+City,+New+York,+NY&hl=en&sll=40.744057,-73.936064&sspn=0.011412,0.020041&oq=30-30+Thomson+Street,+Long+Island+City+NY&gl=us&hnear=30-30+Thomson+Ave,+Queens,+New+York+11101&t=m&z=16">View Map</a><br>
@@ -54,13 +62,25 @@ function drawFunction($function) {
 		<form class="well contact">
 			<h2>Contact Form</h2>
 			
-			<input type="text" class="span3" placeholder="Your email address">
+			<div><input type="text" class="span4" placeholder="Your name"></div>
 
-			<textarea placeholder="Type your message here."></textarea>
+			<div><input type="text" class="span4" placeholder="Your email address"></div>
+			
+			<div><select>
+				<option selected="selected">Your profession</option>
+				' . $professions . '
+			</select></div>
+
+			<div><select>
+				<option selected="selected">Your professional sector</option>
+				' . $sectors . '
+			</select></div>
+
+			<div><textarea placeholder="Type your message here."></textarea></div>
   
-			<label class="checkbox">
+			<div><label class="checkbox">
 				<input type="checkbox" checked="checked"> Add me to the mailing list
-			</label>
+			</label></div>
   
 			<button type="submit" class="btn">Submit</button>
 		</form>';
@@ -84,6 +104,37 @@ function drawFunction($function) {
 			draw_div('wrapper', drawInTheNews())
 		);
 		
+		case 'support-form' :
+		
+		$options = db_array('SELECT title FROM user_contact_professions WHERE is_active = 1 ORDER BY precedence');
+		foreach ($options as &$o) $o = draw_tag('option', false, $o);
+		$professions = implode('', $options);
+		
+		$options = db_array('SELECT title FROM user_contact_sectors WHERE is_active = 1 ORDER BY precedence');
+		foreach ($options as &$o) $o = draw_tag('option', false, $o);
+		$sectors = implode('', $options);
+		
+		return '
+		<form class="well contact">
+			<h2>Make a Donation</h2>
+			
+			<div><input type="text" class="span4" placeholder="Your name"></div>
+
+			<div><input type="text" class="span4" placeholder="Your email address"></div>
+
+			<div class="input-prepend input-append">
+				<span class="add-on">$</span><input class="span2" size="16" placeholder="0" type="text"><span class="add-on">.00</span>
+			</div>
+						
+			<div><textarea placeholder="Type your message here."></textarea></div>
+  
+			<div><label class="checkbox">
+				<input type="checkbox" checked="checked"> Add me to the mailing list
+			</label></div>
+  
+			<button type="submit" class="btn">Submit</button>
+		</form>';
+		
 	}
 	error_handle('system-insert command not handled', 'The function ' . $function . ' was not handled.', __file__, __line__);	
 }
@@ -99,6 +150,7 @@ function drawFirst() {
 		draw_meta_utf8() . 
 		draw_title($page['title']) . 
 		draw_meta_description($page['description']) . 
+		'<meta name="viewport" content="width=device-width, initial-scale=1.0">' . 
 		lib_get('bootstrap') .
 		draw_css_src()
 	) . 
