@@ -43,6 +43,7 @@ function drawFirst() {
 	
 	$return = url_header_utf8() . draw_doctype() . draw_container('head',
 		draw_meta_utf8() . 
+		draw_chrome_frame() . 
 		draw_title($page['title']) . 
 		draw_meta_description($page['description']) . 
 		'<meta name="viewport" content="width=device-width, initial-scale=1.0">' . 
