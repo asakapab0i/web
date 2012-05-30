@@ -22,7 +22,7 @@
 }
 
 .max_width {
-	max-width: 100%; width: auto\9;
+	max-width: 100%; width: auto\9; height: auto;
 }
 
 .opacity(@opacity: 0.5) {
@@ -47,22 +47,24 @@ a {
 .top > div { 
 	margin-top: 1px;
 	li { 
-		list-style-type: none; 
+		float: left; width: 115px; list-style-type: none; margin: 0 2px 2px 0; background-color: @black; height: 32px; 
 		a { 
-			color: @white; text-decoration: none; float: left; margin: 0 2px 2px 0; background-color: @black; height: 26px; padding: 3px 6px; text-transform: uppercase; 
-			font-size: 10px; width: 103px; line-height: 11px;
-			&:hover { background-color: @lightgray; color: @black; }
+			text-decoration: none; margin: 3px 6px; text-transform: uppercase; color: @white; 
+			font-size: 10px; line-height: 11px;
 		}
 		ul { display: none; }
-		&.selected a, &.descendant-selected a { background-color: @lightgray; color: @black; }
-		&:last-child a { margin-right: 0; }
-		&.option1, &.option2, &.option3, &.option6, &.option7, &.option8 { a { width: 104px; } }
+		&:hover, &.selected, &.descendant-selected { 
+			background-color: @lightgray; 
+			a { color: @black; background-color: transparent; }
+		}
+		&.last { margin-right: 0; }
+		&.option1, &.option2, &.option3, &.option6, &.option7, &.option8 { width: 116px; }
 	}
 }
 
 .banner > div {
-	margin-top: 22px; height: 99px; padding-bottom: 8px; border-bottom: 1px solid @black; 
-	a.logo { float: left; }
+	margin-top: 22px; height: 99px; padding-bottom: 8px; border-bottom: 1px solid @black;  position: relative;
+	a.logo { position: absolute; left: 0; top: 0; text-decoration: none; display: block; width: 150px; height: 99px; }
 	ul.utility {
 		list-style-type: none; margin-top: 81px; float: right; text-transform: uppercase; 
 		li {
@@ -77,29 +79,21 @@ a {
 
 body.home {
 	.hero {
-		margin-top: 8px; margin-bottom: 16px;
+		margin-top: 8px; margin-bottom: 16px; position: relative; 
+		
 		.carousel {
-			margin-bottom: 0; height: 275px; border-bottom: 1px solid @black; padding-bottom: 8px; 
-			div.slideshow_container {
-				position: relative; 
-				ul {
-					list-style-type: none; margin: 0; padding: 0; 
-					li { float: left; }
-					&.slideshow {
-						li {
-							height: 275px;
-							img { width: 620px; height: 275px; }
-						}
-					}
-					&.controller {
-						position: absolute; bottom: 13px; left: 6px;
-						li {
-							border: 1px solid @black; background-color: @white; margin-right: 10px; padding: 1px 3px; display: block; cursor: pointer; font-size: 12px; line-height: 12px;
-							&.arrows { display: none; }
-							&.selected, &:hover { background-color: @black; color: @white; }
-						}
-					}
-				}
+			border-bottom: 1px solid @black; padding-bottom: 8px;
+			div.item {
+				width: 620px; height: 275px; 
+				img { .max_width; }
+			}
+		}
+
+		ul.controller { 
+			list-style-type: none; position: absolute; left: 24px; bottom: 30px; margin: 0; padding: 0; overflow: auto; 
+			li { 
+				border: 1px solid @black; background-color: @white; float: left; margin: 0 4px 0 0; padding: 1px 6px; cursor: pointer;
+				&:hover, &.active { background-color: @black; color: @white; }
 			}
 		}
 		
@@ -162,39 +156,22 @@ body.home {
 		.lede { font-size: 15px; color: @mediumgray; line-height: 20px; }
 		
 		.gallery { 
-			margin-bottom: 20px; 
-			.slideshow_container { 
-				position: relative; overflow: hidden;
-				ul {
-					list-style-type: none; margin: 0; padding: 0;
-					li { 
-						float: left;
-						.caption {
-							color: @mediumgray; font-size: 12px; padding-top: 8px; 
-						}
-					}
-					&.slideshow {
-						li {
-							img {
-								width: 780px; height: 347px; 
-							}
-						}
-					}
-					&.controller {
-						li {
-							&.number { display: none; }
-							&.arrows {
-								position: absolute; top: 45%; width: 0; height:0; overflow: hidden; border: 20px solid transparent; .opacity(0); cursor: pointer; 
-								&.prev { left: 10px; border-right-color: @white; }
-								&.next { right: 10px; border-left-color: @white; }
-							}
-						}
-					}
+			margin-bottom: 20px; overflow: hidden;
+			div.item {
+				width: 780px; 
+				img { .max_width; }
+				.caption { font-size: 12px; color: @mediumgray; line-height: 14px; margin-top: 4px; }
+			}
+				/*
+				&.arrows {
+					position: absolute; top: 45%; width: 0; height:0; overflow: hidden; border: 20px solid transparent; .opacity(0); cursor: pointer; 
+					&.prev { left: 10px; border-right-color: @white; }
+					&.next { right: 10px; border-left-color: @white; }
 				}
 				&:hover {
 					ul.controller li.arrows { .opacity(.8); }
 				}
-			}
+				*/
 		}
 	
 		.text {
@@ -301,19 +278,11 @@ body.home {
 }
 
 /* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {	body.home {
+@media (min-width: 768px) and (max-width: 979px) {
+	body.home {
 		.hero {
 			.carousel {
-				div.slideshow_container {
-					ul {
-						&.slideshow {
-							li { 
-								height: 207px;
-								img { width: 600px; height: 207px; }
-							}
-						}
-					}
-				}
+				div.item { width: 600px; height: 207px; }
 			}
 			.facts { height: 216px; }
 		}
@@ -326,34 +295,24 @@ body.home {
 	body.home {
 		.hero {
 			.carousel {
-				height: 342px;
-				div.slideshow_container {
-					ul {
-						&.slideshow {
-							li { 
-								height: 342px;
-								img { width: 770px; height: 342px; }
-							}
-						}
-					}
-				}
-			}
+				div.item { width: 770px; height: 342px; }
+			}				
 			.facts { 
 				height: 351px;
 				.inner p { font-size: 25px; line-height: 30px; }
 			}
+			ul.controller { left: 34px; }
 		}
 	}
 	
-	.page .content .gallery .slideshow_container ul.slideshow li {
-		img { width: 970px; height: 431px; }
+	.page .content .gallery div.item {
+		width: 970px;
 	}
 	
 	.top > div { 
 		li { 
-			a { width: 132px; }
-			&.option1, &.option2, &.option7, &.option8 { a { width: 133px; } }
-			&.option3, &.option6 { a { width: 132px; } }
+			&.option1, &.option2, &.option7, &.option8 { width: 145px; }
+			&.option3, &.option4, &.option5, &.option6 { width: 144px; }
 		}
 	}
 }

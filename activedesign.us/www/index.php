@@ -12,7 +12,13 @@ if (home()) {
 	//get items for carousel
 	$carousel = db_table('SELECT c.id, c.caption, p.url, ' . db_updated('c') . ' FROM user_carousel_items c JOIN user_pages p ON c.page_id = p.id WHERE c.is_published = 1 AND c.is_active = 1 ORDER BY c.precedence');
 	$caption = $carousel[0]['caption'];
-	foreach ($carousel as &$c) $c = draw_img(file_dynamic('user_carousel_items', 'image', $c['id'], 'jpg', $c['updated']), $c['url'], $c['caption']);
+	$controller = array();
+	$counter = 1;
+	foreach ($carousel as &$c) {
+		$controller[] = $counter;
+		$counter++;
+		$c = draw_div('item', draw_img(file_dynamic('user_carousel_items', 'image', $c['id'], 'jpg', $c['updated']), $c['url'], $c['caption']));
+	}
 
 	$thumbnails = db_table('SELECT t.id, t.title, p.url, ' . db_updated('t') . ' FROM user_thumbnails t JOIN user_pages p ON t.link_id = p.id WHERE t.is_active = 1 AND t.is_published = 1 ORDER BY t.precedence', 6);
 	$titles = array();
@@ -23,7 +29,10 @@ if (home()) {
 	
 	echo '
 		<div class="row hero">
-			<div class="span8 carousel">' . draw_list($carousel, array('class'=>'slideshow auto', 'data-timer'=>8000)) . '&nbsp;</div>
+			<div class="carousel_wrapper">
+				<div class="span8 carousel slide">' . draw_div('carousel-inner', implode('', $carousel)) . '</div>
+				' . draw_list($controller, 'controller') . '
+			</div>
 			<div class="span4 facts">
 				<div class="inner">' . $caption . '</div>
 			</div>
@@ -43,8 +52,8 @@ if (home()) {
 	foreach ($side_images as &$s) $s = draw_img(file_dynamic('user_side_images', 'image', $s['id'], 'jpg', $s['updated'])) . draw_div_class('caption', $s['title']);
 	
 	if ($gallery_images = db_table('SELECT id, title, ' . db_updated() . ' FROM user_gallery_images WHERE is_active = 1 AND is_published = 1 AND page_id = ' . $page['id'] . ' ORDER BY precedence')) {
-		foreach ($gallery_images as &$s) $s = draw_img(file_dynamic('user_gallery_images', 'image', $s['id'], 'jpg', $s['updated'])) . draw_div_class('caption', draw_div_class('inner', $s['title']));
-		$gallery_images = draw_div_class('gallery', draw_list($gallery_images, 'slideshow'));
+		foreach ($gallery_images as &$s) $s = draw_div('item', draw_img(file_dynamic('user_gallery_images', 'image', $s['id'], 'jpg', $s['updated'])) . draw_div_class('caption', draw_div_class('inner', $s['title'])));
+		$gallery_images = draw_div('gallery carousel slide', implode('', $gallery_images));
 	} else {
 		$gallery_images = false;
 	}

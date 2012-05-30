@@ -34,6 +34,36 @@ function drawContent($text) {
 	}
 }
 
+function drawFirst() {
+	global $page, $pages;
+	
+	$color = getColor();
+	
+	$utility = db_table('SELECT p.url, p.title FROM user_utility_nav_options o JOIN user_pages p ON o.page_id = p.id WHERE o.is_published = 1 AND o.is_active = 1 AND p.is_published = 1 AND p.is_active = 1 ORDER BY o.precedence');
+	
+	$return = url_header_utf8() . draw_doctype() . draw_container('head',
+		draw_meta_utf8() . 
+		draw_title($page['title']) . 
+		draw_meta_description($page['description']) . 
+		'<meta name="viewport" content="width=device-width, initial-scale=1.0">' . 
+		lib_get('bootstrap') .
+		draw_css_src()
+		//draw_css_src('/css/ie.css', 'ie')
+	) . 
+	draw_body_open() . 
+	'<div class="container">
+		<div class="row top">
+			<div class="span12">' . draw_nav_nested($pages[0]['children']) . '</div>
+		</div>
+		<div class="row banner">
+			<div class="span12">
+				<a href="/" class="logo"><img src="/images/logo-' . strtolower($color['title']) . '.png" alt="logo" width="150" height="99" /></a>
+				' . draw_nav(array_key_promote($utility), 'text', 'utility') . '
+			</div>
+		</div>';
+	return $return;
+}
+
 function drawFunction($function) {
 	switch($function) {
 		case 'staff' :
@@ -139,35 +169,6 @@ function drawFunction($function) {
 	error_handle('system-insert command not handled', 'The function ' . $function . ' was not handled.', __file__, __line__);	
 }
 
-function drawFirst() {
-	global $page, $pages;
-	
-	$color = getColor();
-	
-	$utility = db_table('SELECT p.url, p.title FROM user_utility_nav_options o JOIN user_pages p ON o.page_id = p.id WHERE o.is_published = 1 AND o.is_active = 1 AND p.is_published = 1 AND p.is_active = 1 ORDER BY o.precedence');
-	
-	$return = url_header_utf8() . draw_doctype() . draw_container('head',
-		draw_meta_utf8() . 
-		draw_title($page['title']) . 
-		draw_meta_description($page['description']) . 
-		'<meta name="viewport" content="width=device-width, initial-scale=1.0">' . 
-		lib_get('bootstrap') .
-		draw_css_src()
-	) . 
-	draw_body_open() . 
-	'<div class="container">
-		<div class="row top">
-			<div class="span12">' . draw_nav_nested($pages[0]['children']) . '</div>
-		</div>
-		<div class="row banner">
-			<div class="span12">
-				<a href="/" class="logo"><img src="/images/logo-' . strtolower($color['title']) . '.png" alt="logo" width="150" height="99" /></a>
-				' . draw_nav(array_key_promote($utility), 'text', 'utility') . '
-			</div>
-		</div>';
-	return $return;
-}
-
 function drawInTheNews($category_id=false) {
 	if ($category_id) {
 		$news = db_table('SELECT n.title, n.url, n.publication, n.date FROM user_news_to_categories n2c JOIN user_news n ON n2c.news_id = n.id WHERE n2c.categories_id = ' . $category_id . ' AND n.is_active = 1 AND n.is_published = 1 ORDER BY n.date DESC');
@@ -202,9 +203,8 @@ function drawLast() {
 		</div>
 	</div>
 	' . 
-		draw_javascript_src() . 
-		draw_javascript_src('/js/global.js') . 
-		cms_bar() . 
+	draw_javascript_src('/js/global.js') . 
+	cms_bar() . 
 	'</body></html>';
 }
 
