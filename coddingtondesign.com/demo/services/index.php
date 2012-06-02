@@ -30,7 +30,7 @@ draw_div('column', '
 	<p>Our clients appreciate knowing that we work with exceptional ateliers and workrooms to create impeccable custom pieces. Coddington Design’s design capabilities include seating, casegoods, lighting and more.</p>
 	
 	<h2>Consultation</h2>
-	<p>Coddington Design can provide advice and create a plan for your space that includes color and fabic selections, furniture layout, and more. We can also help you refine existing elements and make suggestions to guide you in the right direction. Please contact us for additional information.</p>
+	<p>Coddington Design can provide advice and create a plan for your space that includes color and fabic selections, furniture layout, and more. We can also help you refine existing elements and make suggestions to guide you in the right direction. Please ' . draw_link('mailto:info@coddingtondesign.com', 'contact us') . ' for additional information.</p>
 	
 	<p>Coddington Design services are available nationally and internationally via our <a href="/room-service/">virtual design service</a>.</p>
 ');

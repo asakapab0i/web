@@ -3,6 +3,9 @@
 @text		: #636466;
 @blue		: #87b8d8;
 
+@gray		: #757678;
+@green		: #bae1d1;
+
 body { font-family: Georgia, serif; font-size: 12px; line-height: 1.5; color: @text; }
 
 a {
@@ -20,7 +23,7 @@ div.container {
 	
 	width: 990px; margin: 0 auto; 
 	
-	p, h2 { margin: 0 0 1em 0; }
+	p, h2 { margin: 0 0 1em 8px; }
 
 	.banner {
 		padding: 35px 0 6px 0; 
@@ -32,7 +35,20 @@ div.container {
 		.column { border-width: 1px 0; border-style: dotted; border-color: @borders; }
 	}
 
-	.row { margin: 0 0 14px -14px; overflow: auto; }
+	.row { 
+		margin: 0 0 14px -14px; overflow: auto; 
+		&.prices {
+			p {
+				color: @blue; font-style: italic; margin-top: 4px; padding-right: 80px; position: relative;
+				a { 
+					background-color: @green; color: @gray; padding: 2px 8px; text-transform: lowercase; position: absolute; top: 0; right: 0;
+					:hover { text-decoration: none; }
+				} 
+				input.image { position: absolute; top: 0; right: 0; }
+			}
+			
+		}
+	}
 	
 	.bottom { vertical-align: bottom; }
 	
@@ -43,7 +59,7 @@ div.container {
 			margin-top: 28px; 
 			&:first-child { margin-top: 0; }
 		}
-		
+				
 		&.span2 { width: 488px; }
 		&.span3 { width: 739px; }
 		&.big { font-size: 20px; }
@@ -125,8 +141,10 @@ div	.press .column {
 	img { margin-bottom: 5px; }
 }
 
+div#mc_embed_signup { margin-left: 8px; }
+
 ul.social {
-	list-style-type: none; margin: 0; padding: 0;
+	list-style-type: none; margin: 0 0 0 8px; padding: 0;
 	li { float: left; margin-right: 10px; }
 }
 

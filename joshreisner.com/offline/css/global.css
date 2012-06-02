@@ -1,0 +1,120 @@
+/*
+1] GLOBAL RESET
+2] GLOBAL BEST PRACTICES
+3] LOCAL DEFAULT STYLES
+	3a] Tag Styles
+	3b] Template Styles
+	3c] Named Styles
+	3d] Page-Specific Styles
+4] LOCAL MEDIA QUERIES
+
+COLORS: 
+#eeeeee - body background
+#444444 - default text (better than black)
+#1d93bf - text links
+#004888 - hovered text links
+#1d93bf - main nav background
+#fafafa - footer background
+
+
+1] GLOBAL RESET
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { border: 0; font: inherit; font-size: 100%; margin: 0; padding: 0; vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ul, ol { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+table { border-collapse: collapse; border-spacing: 0; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+input, select { vertical-align: middle; }
+
+
+/* 
+2] GLOBAL BEST PRACTICES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+html { overflow-y: scroll; } /* Always force a scrollbar in non-IE */
+body { *font-size: small; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; } /* Hack retained to preserve specificity; keywords for IE 6/7 so people can resize text & Initiate iOS and WinMobile to mobile-optimize the text for you*/
+select, input, textarea, button { font: 99% sans-serif; }
+pre, code, kbd, samp { font-family: monospace, sans-serif; } /* Normalize monospace sizing: */
+a:hover, a:active { outline: none; } /* Accessible focus treatment */
+small { font-size: 85%; }
+td { vertical-align: top; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; } /* Set sub, sup without affecting line-height */
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 15px; }
+textarea { overflow: auto; } 
+.ie6 legend, .ie7 legend { margin-left: -7px; } 
+input { -webkit-appearance : none; -webkit-border-radius: 0;}
+input[type="radio"] { vertical-align: text-bottom; } /* Align checkboxes, radios, text inputs with their label */
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; } /* Hand cursor on clickable input elements */
+button, input, select, textarea { margin: 0; } /* Webkit browsers add a 2px margin outside the chrome of form elements */
+button {  width: auto; overflow: visible; } /* Make buttons play nice in IE */
+.ie6 img { height: 100%; width: 100%; }
+.ie7 img, .iem7 img { -ms-interpolation-mode: bicubic; } /* Bicubic resizing for non-native sized IMG */
+
+
+/* 
+3] LOCAL DEFAULT STYLES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+3a] Tag Styles
+*/
+div#status { background-color: grey; color:#fff; padding: 6px; float: left; }
+div#status.offline { background-color: red; }
+div#status.online { background-color: green; }
+
+/*
+3b] Template Styles
+*/
+
+
+/*
+3c] Named Styles
+*/
+
+
+
+
+/*
+3d] Page-Specific Styles
+
+4] MEDIA QUERIES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media print {
+
+}
+
+/* handheld */
+@media only screen and (min-width: 480px) {
+
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* ordinary screen */
+@media only screen and (min-width: 975px) {
+
+}
+
+/* large screen */
+@media only screen and (min-width: 1382px) {
+
+}
+
+/* apple retina display */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+}

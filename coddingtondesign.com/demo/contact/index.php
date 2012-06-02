@@ -14,8 +14,8 @@ draw_div('column span2',
 		draw_div('column', '
 			<h2>San Francisco</h2>
 
-			<p>1434 Kansas Street<br>
-			San Francisco, CA 94107<br>
+			<p>550 15th Street, suite M18<br>
+			San Francisco, CA 94103<br>
 			By appointment only</p>
 			
 			<p>telephone: <a class="inherit" href="tel:4152852821">415 285 2821</a><br>

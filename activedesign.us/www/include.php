@@ -59,6 +59,7 @@ function drawFirst() {
 		<div class="row banner">
 			<div class="span12">
 				<a href="/" class="logo"><img src="/images/logo-' . strtolower($color['title']) . '.png" alt="logo" width="150" height="99" /></a>
+				<div class="tagline">Promoting health through design</div>
 				' . draw_nav(array_key_promote($utility), 'text', 'utility') . '
 			</div>
 		</div>';

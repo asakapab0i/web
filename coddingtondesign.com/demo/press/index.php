@@ -20,7 +20,7 @@ foreach ($press as $p) {
 	}
 	echo draw_div_class($class, 
 		draw_img(file_dynamic('user_press', 'image', $p['id'], 'jpg', $p['updated']), $p['link'], false, false, true) .
-		draw_div_class('press', $p['title'] . ' (' . format_date($p['date'], false, '%B %Y') . ')' . BR . draw_link($p['link'], $more, true) . ' >')
+		draw_p($p['title'] . ' (' . format_date($p['date'], false, '%B %Y') . ')' . BR . draw_link($p['link'], $more, true) . ' >', 'press')
 	);
 }
 

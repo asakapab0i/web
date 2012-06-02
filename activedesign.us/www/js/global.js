@@ -1,11 +1,9 @@
-function slideshowTransitionStarted($el) {
-	$("div.facts div.inner").fadeOut(200, function() {
-		var caption = $el.find("li.selected img").attr("alt");
-		$(this).html(caption).fadeIn(200);	
-	});
-}
-
 $(function(){
+	/* top nav clicks */
+	$(".row.top ul.nav li").on("click", function() {
+		location.href = $(this).find("a").attr("href");
+	});
+	
 	/* home hero carousel */
 	$(".hero .carousel div.item").first().addClass("active");
 	$(".hero ul.controller li").first().addClass("active");

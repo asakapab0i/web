@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site xmlns="http://server.joshreisner.com/documentation/schemas/site/" save_date="2007-04-26T06:17:19-07:00">
+	<header>&lt;html&gt;&#13;	&lt;head&gt;&#13;		&lt;title&gt;&lt;?=$page[&quot;title&quot;]?&gt;&lt;/title&gt;&#13;		&lt;style type=&quot;text/css&quot;&gt;&#13;			body { margin:0px; background-color:#d4d2c5; font-family:arial, sans-serif; }&#13;			.selected    { padding-left:20px; padding-right:20px; background-color:#ffffff; color:#1b0e03; text-align:center; font-size:11px; font-weight:bold; }&#13;			.unselected  { padding-left:20px; padding-right:20px; background-color:#696054; color:#ffffff; text-align:center; font-size:11px; font-weight:bold; }&#13;			.content     { color:#1b0e03; font-size:12px; line-height:20px; padding:20px; }&#13;			.heading     { color:#1b0e03; font-weight:bold; font-size:20px; }&#13;			.subheading  { color:#1b0e03; font-weight:bold; font-size:13px; }&#13;			.grey        { color:#bbbbbb; font-size:11px; }&#13;			.hilite      { background-color:#ffffcc; }&#13;			a:link          { color:#cc5555; }&#13;			a:active        { color:#cc5555; }&#13;			a:visited       { color:#cc5555; }&#13;			a:hover         { color:#cc9999; }&#13;			a.white:link          { color:#ffffff; }&#13;			a.white:active        { color:#ffffff; }&#13;			a.white:visited       { color:#ffffff; }&#13;			a.white:hover         { color:#ffffee; }&#13;			a.brown:link          { color:#1b0e03; }&#13;			a.brown:active        { color:#1b0e03; }&#13;			a.brown:visited       { color:#1b0e03; }&#13;			a.brown:hover         { color:#696054; }&#13;			a.grey:link           { color:#bbbbbb; text-decoration:none; }&#13;			a.grey:active         { color:#bbbbbb; text-decoration:none; }&#13;			a.grey:visited        { color:#bbbbbb; text-decoration:none; }&#13;			a.grey:hover          { color:#cccccc; text-decoration:underline; }&#13;		&lt;/style&gt;&#13;	&lt;/head&gt;&#13;	&lt;body&gt;&#13;	&lt;table width=&quot;634&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; align=&quot;center&quot; height=&quot;100%&quot;&gt;&#13;		&lt;tr height=&quot;55&quot;&gt;&#13;			&lt;td&gt;&lt;a href=&quot;/&quot;&gt;&lt;img src=&quot;/joshserver/images/sample-logo.png&quot; width=&quot;190&quot; height=&quot;55&quot; border=&quot;0&quot;&gt;&lt;/a&gt;&lt;/td&gt;&#13;		&lt;/tr&gt;&#13;		&lt;tr height=&quot;27&quot;&gt;&#13;			&lt;td&gt;&#13;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; height=&quot;27&quot;&gt;&#13;	&lt;tr&gt;&#13;		&lt;?=josh_draw_sections('&lt;td class=&quot;selected&quot;&gt;&lt;a href=&quot;_joshurl&quot; class=&quot;brown&quot;&gt;_joshname&lt;/a&gt;&lt;/td&gt;', '&lt;td class=&quot;unselected&quot;&gt;&lt;a href=&quot;_joshurl&quot; class=&quot;white&quot;&gt;_joshname&lt;/a&gt;&lt;/td&gt;', '&lt;td width=&quot;12&quot;&gt;&lt;/td&gt;');?&gt;&#13;	&lt;/tr&gt;&#13;&lt;/table&gt;&#13;			&lt;/td&gt;&#13;		&lt;tr height=&quot;99%&quot;&gt;&#13;			&lt;td bgcolor=&quot;#ffffff&quot; height=&quot;99%&quot; valign=&quot;top&quot; class=&quot;content&quot;&gt;&#13;</header>
+	<footer>		&lt;/td&gt;&#13;	&lt;/tr&gt;&#13;	&lt;tr bgcolor=&quot;#ffffff&quot;&gt;&#13;		&lt;td height=&quot;5%&quot; class=&quot;content&quot;&gt;&#13;			&lt;table width=&quot;100%&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;&#13;				&lt;tr valign=&quot;top&quot; class=&quot;grey&quot;&gt;&#13;					&lt;td width=&quot;50%&quot;&gt;page updated &lt;?=josh_format_date_time($_josh[&quot;page&quot;][&quot;approved_on&quot;]);?&gt;&lt;/td&gt;&#13;					&lt;td width=&quot;50%&quot; align=&quot;right&quot;&gt;powered by &lt;a href=&quot;http://server.joshreisner.com/&quot; class=&quot;grey&quot;&gt;joshserver&lt;/a&gt;&lt;/td&gt;&#13;				&lt;/tr&gt;&#13;			&lt;/table&gt;&#13;		&lt;/td&gt;&#13;	&lt;/tr&gt;&#13;	&lt;/table&gt;&#13;	&lt;/body&gt;&#13;&lt;/html&gt;&#13;</footer>
+	<parent>
+		<url>%2F</url>
+		<title>Home</title>
+		<content>&lt;div style=&quot;float:right; background-color:#ffffcc; width:180px; height:140px; padding:10px; color:#454540; margin-left:20px;&quot;&gt;&#13;
+	&lt;?if(isset($user[&quot;id&quot;])) {?&gt;&#13;
+	&lt;b&gt;Welcome &lt;?=ucfirst($user[&quot;name&quot;])?&gt;!&lt;/b&gt;&lt;br&gt;&#13;
+	If you were not logged in right now, you would see a different message&#13;
+	in this here shaded region.&#13;
+	&lt;?}else{?&gt;&#13;
+	&lt;b&gt;Howdy Stranger!&lt;/b&gt;&lt;br&gt;&#13;
+	Did you know you can &lt;a href=&quot;/?j=login&quot;&gt;log in&lt;/a&gt; to make changes to this site?&#13;
+	&lt;?}?&gt;&#13;
+&#13;
+&lt;/div&gt;&#13;
+&lt;div class=&quot;heading&quot;&gt;Come On In!&lt;/div&gt;&#13;
+&lt;br&gt;&#13;
+This sample site is here to demonstrate the features and layout of your new joshserver.  You&#13;
+should feel free to go right ahead and change stuff, or just delete everything and start over, if you want.  &#13;
+After all, it's &lt;i&gt;your&lt;/i&gt; stuff!&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Read on for a quick overview, and see the &lt;a href=&quot;http://server.joshreisner.com/&quot;&gt;external documentation&lt;/a&gt; for a more in-depth&#13;
+discussion of features.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+&lt;div class=&quot;subheading&quot;&gt;First Things First (A Disclaimer)&lt;/div&gt;&#13;
+Joshserver is not intended to be an enterprise content management solution.  Rather, it's a lightweight and fun interface for developing &#13;
+small websites and applications.  &lt;b&gt;It's not guaranteed to be secure.&lt;/b&gt;  I did my best to make my script bug-free, but by no means&#13;
+is it 'rock-solid.'  Please don't run mission-critical applications with joshserver.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+&lt;div class=&quot;subheading&quot;&gt;Ok!  So What Can It Do?&lt;/div&gt;&#13;
+Joshserver provides some quick and easy tools to allow you to do common stuff really fast.  The main thing is &#13;
+editing pages.  If you haven't yet, try clicking the 'edit' button in the bottom-left corner of your screen.  &#13;
+(We're assuming you're still logged in for this step.)&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+As you can see, all the code for this page is at your fingertips.  Try changing something.  Now hit 'save.'  That was fast, wasn't&#13;
+it?&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Now that we've got your attention, it's time to turn to the next page, on &lt;a href=&quot;/headandfoot/&quot;&gt;headers and footers&lt;/a&gt;.&#13;
+</content>
+	</parent>
+	<parent>
+		<url>%2Fheadandfoot%2F</url>
+		<title>Header and Footer</title>
+		<content>&lt;div class=&quot;heading&quot;&gt;It's All You, from Top to Bottom.&lt;/div&gt;&#13;
+&lt;br&gt;&#13;
+Headers and footers are a common way of including standard (yet dynamic) code at the top and bottom of each page&#13;
+on your site.  This is often used to handle site navigation, such as the brown and white tabs above.  They're still&#13;
+brown and white, right?  (It doesn't matter, it's all up to you.)&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+&lt;div class=&quot;subheading&quot;&gt;Give It a Try!&lt;/div&gt;&#13;
+To see the code for the header, click 'header' in the code drawer (again assuming you're still logged in and in 'edit'&#13;
+mode).  If you make a change here, it will affect the whole site.  Try changing something, such as the background&#13;
+color in the style tag.  Now all of your pages have this background color.  Nice!&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+&lt;div class=&quot;subheading&quot;&gt;Do I Have to Use the Header and Footer?&lt;/div&gt;&#13;
+Hell no.  You don't have to do anything you don't want to do.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Now check out the information at the bottom of each page.  To change that stuff, just make changes to the footer and&#13;
+click 'done.'  Easy, right?&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Next up: the &lt;a href=&quot;/approvals/&quot;&gt;approval process&lt;/a&gt;.</content>
+	</parent>
+	<parent>
+		<url>%2Fapprovals%2F</url>
+		<title>Approvals</title>
+		<content>&lt;div class=&quot;heading&quot;&gt;Someone to Watch Over You.&lt;/div&gt;&#13;
+&lt;br&gt;&#13;
+As you were making changes to this sample site earlier, you might have noticed that after you hit 'done,' the 'approve'&#13;
+and 'discard' buttons light up.  If you click 'approve,' then any changes you made to that page instantly become live on&#13;
+the site.  If you click 'discard,' the code reverts back to the last approved version.  This system creates a nice buffer&#13;
+between you, the coder, and the public.  This is handy when you are doing tricky programming, because then it becomes&#13;
+a space in which you can debug your code without the world seeing it until you think it's ready.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+The approval system also has another purpose, which is to allow for a typical division of labor in web development:&#13;
+programmers and copyeditors.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+To joshserver, there are three types of users:&#13;
+&lt;dir&gt;&#13;
+&lt;b class=&quot;hilite&quot;&gt;Coders&lt;/b&gt; can modify any page they want, but they can't approve them and therefore can have no immediate impact on&#13;
+the site.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+&lt;b class=&quot;hilite&quot;&gt;Approvers&lt;/b&gt; approve (or discard) the content that the coders code, thus having an administrative impact but not&#13;
+a creative one.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+&lt;b class=&quot;hilite&quot;&gt;People who are both&lt;/b&gt;, such as yourself, can act in both roles.  This means you're important!  Give yourself a pat on the back!&#13;
+&lt;/dir&gt;&#13;
+&lt;div class=&quot;subheading&quot;&gt;Three Caveats&lt;/div&gt;&#13;
+One important exception is that any of these three authenticated user types can retitle pages.  The 'title' is the page&#13;
+name that's at the top of the window (and in the tab).  People rarely notice this text when they're looking at&#13;
+a site, but it's a vital piece of information, particularly to search engines.  This is the text that searchers&#13;
+will click when they find your site.  You can rename pages by clicking the 'title' button.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Another thing that any authenticated user can do is create and delete pages from the site.  Ideally that would solely&#13;
+be the job of the coder, but creating an approval process for blank pages seems a little counter-intuitive.  Since this is supposed to&#13;
+fun and not rocket science, the decision was made to go with the simplest solution.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Finally, changes to the header and footer are approved when the first page is approved.  Creating a separate approval&#13;
+system for them was also deemed confusing.&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Onward to &lt;a href=&quot;/administrate/&quot;&gt;site administration&lt;/a&gt;!&#13;
+</content>
+	</parent>
+	<parent>
+		<url>%2Fadministrate%2F</url>
+		<title>Administrate</title>
+		<content>&lt;div class=&quot;heading&quot;&gt;Creating, Deleting, and Everything in Between.&lt;/div&gt;&#13;
+&lt;br&gt;&#13;
+Creating new pages is a snap with Joshserver; all you have to do is just navigate to the page you want&#13;
+and click 'create.'  For an example, go to &lt;a href=&quot;/your_new_page/&quot;&gt;/your_new_page/&lt;/a&gt;.  You should see a screen&#13;
+telling you that there's no page there, with the option to create one.  Enter your title, click the button, and you're &#13;
+done!  (If you weren't logged in, you'd have seen an error message with the option to contact the site administrator.)&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+Pages can be re-ordered and formed into sections on the administrate screen.  To get there, just click &#13;
+the 'administrate' button below.  You can also do a bunch of other&#13;
+stuff on that page, such as invite new users, get rid of old users, and back up your site.  There's also a button &#13;
+to delete everything and start over.  Be careful with that one, obviously.</content>
+	</parent>
+	<parent>
+		<url>%2Fmore%2F</url>
+		<title>More</title>
+		<content>&lt;div class=&quot;heading&quot;&gt;But Wait!  There's So Much...&lt;/div&gt;&#13;
+&lt;br&gt;&#13;
+Well, actually, there's not a whole lot more than what you've already seen.  It's a pretty simple program,&#13;
+by design!  But you should check out &lt;a href=&quot;http://server.joshreisner.com/&quot;&gt;the joshserver website&lt;/a&gt; where you&#13;
+can&#13;
+&lt;ul&gt;&#13;
+&gt;  &lt;a href=&quot;http://server.joshreisner.com/&quot;&gt;download the latest version&lt;/a&gt;,&lt;br&gt;&#13;
+&gt;  &lt;a href=&quot;http://server.joshreisner.com/documentation/&quot;&gt;read the documentation&lt;/a&gt;,&lt;br&gt;&#13;
+&gt;  &lt;a href=&quot;http://server.joshreisner.com/&quot;&gt;get help&lt;/a&gt;,&lt;br&gt;&#13;
+&gt;  &lt;a href=&quot;http://server.joshreisner.com/feedback/&quot;&gt;leave feedback&lt;/a&gt;,&lt;br&gt;&#13;
+&gt;  &lt;a href=&quot;http://server.joshreisner.com/&quot;&gt;request a feature&lt;/a&gt;, and&lt;br&gt;&#13;
+&gt;  &lt;a href=&quot;http://server.joshreisner.com/gallery/&quot;&gt;see what other people are doing&lt;/a&gt; with joshserver.&#13;
+&lt;/ul&gt;&#13;
+Good luck, and happy coding!&#13;
+&lt;br&gt;&lt;br&gt;&#13;
+&lt;hr style=&quot;border:1px dotted #cccccc;&quot;&gt;&#13;
+&lt;br&gt;&#13;
+Version 1 will be finished done when I:&#13;
+&lt;ul&gt;&#13;
+	&lt;li&gt;bug: not saving on this site when you hit 'done' (sometimes)&#13;
+	&lt;li&gt;auto-check for updates on the administration page&#13;
+	&lt;li&gt;javascript on the file upload page&#13;
+	&lt;li&gt;disable user role on add first user&#13;
+	&lt;li&gt;write the joshserver site&#13;
+		&lt;ul&gt;&#13;
+			&lt;li&gt;tutorials&#13;
+			&lt;li&gt;function documentation&#13;
+			&lt;li&gt;user feedback&#13;
+			&lt;li&gt;make template for administration page?&#13;
+		&lt;/ul&gt;&#13;
+	&lt;li&gt;get someone (jg?) to check over this site and suggest changes&#13;
+	&lt;li&gt;determine the limitations of the htmlentities() situation&#13;
+	&lt;li&gt;block navigate-back in codepress&#13;
+	&lt;li&gt;HTML site map&#13;
+	&lt;li&gt;refactor code: host &amp; site redundant?&#13;
+	&lt;li&gt;send email for the following scenarios:&#13;
+		&lt;ul&gt;&#13;
+			&lt;li&gt;contact administrator&#13;
+			&lt;li&gt;forgot password&#13;
+			&lt;li&gt;invites&#13;
+			&lt;li&gt;deletes&#13;
+			&lt;li&gt;approval requesting&#13;
+		&lt;/ul&gt;&#13;
+	&lt;li&gt;search&#13;
+	&lt;li&gt;&lt;span class=&quot;hilite&quot;&gt;import child pages from XML&lt;/span&gt;&#13;
+	&lt;li&gt;different roles for approvers &amp; coders&#13;
+	&lt;li&gt;test additional sites&#13;
+	&lt;li&gt;test additional users&#13;
+	&lt;li&gt;test foreign keys&#13;
+	&lt;li&gt;implement all my current sites using joshserver&#13;
+&lt;/ul&gt;&#13;
+&lt;br&gt;&#13;
+Wishlist / version 2 stuff:&#13;
+&lt;ul&gt;&#13;
+	&lt;li&gt;SSL when editing?&#13;
+	&lt;li&gt;upload images &amp; files&#13;
+	&lt;li&gt;objects&#13;
+	&lt;li&gt;internationalize / support for other languages&#13;
+&lt;/ul&gt;&#13;
+</content>
+	</parent>
+</site>

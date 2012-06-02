@@ -47,7 +47,7 @@ a {
 .top > div { 
 	margin-top: 1px;
 	li { 
-		float: left; width: 115px; list-style-type: none; margin: 0 2px 2px 0; background-color: @black; height: 32px; 
+		float: left; width: 115px; list-style-type: none; margin: 0 2px 2px 0; background-color: @black; height: 32px; cursor: pointer;
 		a { 
 			text-decoration: none; margin: 3px 6px; text-transform: uppercase; color: @white; 
 			font-size: 10px; line-height: 11px;
@@ -63,14 +63,15 @@ a {
 }
 
 .banner > div {
-	margin-top: 22px; height: 99px; padding-bottom: 8px; border-bottom: 1px solid @black;  position: relative;
+	margin-top: 22px; height: 124px; padding-bottom: 8px; border-bottom: 1px solid @black;  position: relative;
 	a.logo { position: absolute; left: 0; top: 0; text-decoration: none; display: block; width: 150px; height: 99px; }
+	div.tagline { position: absolute; bottom: 7px; left: 0; text-transform: uppercase; font-size: 11px; color: @mediumgray; }
 	ul.utility {
-		list-style-type: none; margin-top: 81px; float: right; text-transform: uppercase; 
+		list-style-type: none; position: absolute; right: 0; bottom: 8px; text-transform: uppercase; margin: 0; padding: 0; font-size: 11px;
 		li {
-			float: left; margin-left: 7px; 
+			float: left; margin-left: 6px; 
 			a {
-				padding: 3px 8px; background-color: @mediumgray; color: #fff; text-decoration: none; font-size: 12px; 
+				padding: 3px 8px; background-color: @mediumgray; color: #fff; text-decoration: none; 
 				&:hover { background-color: @lightgray; color: @black; }
 			}
 		}

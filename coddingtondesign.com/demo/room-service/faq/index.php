@@ -23,7 +23,7 @@ echo draw_div('column span3',
 			<p>A:  Your Room Service design will come with a specification list for each item of furniture needed.  We are happy to reselect one or two items for you on a case-by-case basis.</p>
 			
 			<h2>Q:  I found something on a flash sale site I think might work better.  Can I see that item in my 3-D rendering?</h2>
-			<p>A:  Yes, just e-mail roomservice@coddingtondesign.com a photo of the items and dimensions.  The fee is $25 per item.  We will work as quickly as we can but no guarantee the sale will still be going on.</p>
+			<p>A:  Yes, just e-mail ' . draw_link('mailto:roomservice@coddingtondesign.com') . ' a photo of the items and dimensions.  The fee is $25 per item.  We will work as quickly as we can but no guarantee the sale will still be going on.</p>
 			
 			<h2>Q:  I  love the design but is it possible to see another color on the walls in the 3-D rendering?</h2>
 			<p>A:  Yes, the fee is $25 per color.</p>
