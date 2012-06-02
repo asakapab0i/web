@@ -7,14 +7,16 @@ if (!empty($_POST['payload']) && in_array($_SERVER['REMOTE_ADDR'], array('207.97
 	$data = $_POST['payload']; 
 	
 	$subject = count($data['commits']) . " new commits";
+/*
 	$body = "New code has been committed to the project: \n"; 
 	
 	foreach($data['commit'] as $commit) { 
 		$body .= "Commit: " . $commit['id'] . "\n"; 
 		$body .= $commit['message'] . "\n\n"; 
 	} 
+*/
 	
-	$body .= draw_array($data);
+	$body .= draw_array($_POST);
 		
 	mail('josh@joshreisner.com', $subject, $body);
 }
