@@ -16,9 +16,9 @@ if (!empty($_POST['payload']) && in_array($_SERVER['REMOTE_ADDR'], array('207.97
 	} 
 */
 	
-	$body .= draw_array($_POST);
+	$body .= draw_array(json_decode($_POST));
 		
-	mail('josh@joshreisner.com', $subject, $body);
+	email('josh@joshreisner.com', $body, $subject);
 }
 ?>
 <h1>Git Auto-Deploy</h1>
