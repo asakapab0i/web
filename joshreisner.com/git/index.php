@@ -14,7 +14,7 @@ if (!empty($_POST['payload']) && in_array($_SERVER['REMOTE_ADDR'], array('207.97
 		$body .= "Commit: " . $commit['id'] . "\n"; 
 		$body .= $commit['message'] . "\n\n"; 
 	} 
-*/
+*/ 
 	
 	$body = draw_array(json_decode($_POST['payload']));
 		
