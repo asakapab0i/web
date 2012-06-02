@@ -10,9 +10,9 @@ body { font-family: Georgia, serif; font-size: 12px; line-height: 1.5; color: @t
 
 a {
 	color: @blue; outline: none; text-decoration: none; cursor: pointer;
-	&:hover { text-decoration: underline; }
 	&.image { display: block; }
 	&.inherit { color: inherit; }
+	&:active, &:hover, &:focus { text-decoration: underline; outline: none; }
 }
 
 h2 { font-weight: normal; font-size: inherit; font-style: italic; color: @blue; }
@@ -36,21 +36,32 @@ div.container {
 	}
 
 	.row { 
-		margin: 0 0 14px -14px; overflow: auto; 
+		margin: 0 0 14px -14px; overflow: auto; position: relative;
 		&.prices {
-			p {
-				color: @blue; font-style: italic; margin-top: 4px; padding-right: 80px; position: relative;
+			.column { margin-bottom: 14px; }
+			div.p {
+				color: @blue; font-style: italic; margin: 4px 0 0 8px; padding-right: 80px; position: relative;
 				a { 
 					background-color: @green; color: @gray; padding: 2px 8px; text-transform: lowercase; position: absolute; top: 0; right: 0;
 					:hover { text-decoration: none; }
 				} 
-				input.image { position: absolute; top: 0; right: 0; }
+				form.paypal {
+					padding: 0; margin: 0; position: absolute; top: 0; right: 0;
+					input.submit {
+						font-family: Georgia, serif; font-size: 11px; line-height: 1.5;
+						background-color: @green; color: @gray; padding: 2px 8px; text-transform: lowercase; border: 0; font-style: italic;
+						&:hover { background-color: lighten(@gray, 40%); color: @gray; }
+					}
+					img { display: none; }				
+				}
 			}
-			
 		}
 	}
 	
-	.bottom { vertical-align: bottom; }
+	.bio { 
+		position: absolute; bottom: 0; right: 0;
+		p { margin-bottom: 0; }
+	}
 	
 	.column {
 		width: 237px; margin-left: 14px; float: left; min-height: 3px; 
@@ -148,9 +159,15 @@ ul.social {
 	li { float: left; margin-right: 10px; }
 }
 
-body.contact fieldset { border:0; margin: 10px 0 0 0; padding:0; }
-body.contact #mce-EMAIL { border:1px solid #a0c0d5; padding:3px; margin:0px; width:300px; outline:none; }
-body.contact fieldset label { display:none; }
-body.contact #mc-embedded-subscribe { display:none; }
-body.contact #mc_embed_close { display:none; }
-body.contact #mce-responses { margin-top:20px; }
+body.projects div.container div.border div.column.side_bottom { border: 0; }
+
+body.contact {
+	fieldset {
+		border:0; margin: 10px 0 0 0; padding:0;
+		label { display: none; }
+		#mce-EMAIL { border:1px solid #a0c0d5; padding:3px; margin:0px; width:300px; outline:none; }
+		#mc-embedded-subscribe { display:none; }
+		#mc_embed_close { display:none; }
+		#mce-responses { margin-top:20px; }
+	}
+}

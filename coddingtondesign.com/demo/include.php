@@ -49,7 +49,7 @@ function drawLast() {
 	return '
 		</div>
 		<div class="border">
-			<div class="column"></div>
+			<div class="column side_bottom"></div>
 			<div class="column span3"></div>
 		</div>
 		<div class="row footer">
