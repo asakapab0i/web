@@ -7,7 +7,7 @@ if (!empty($_POST['payload']) && in_array($_SERVER['REMOTE_ADDR'], array('207.97
 	//incoming data is from valid github server
 	
 	$subject = 'New Commit Report';
-	$body = draw_array(json_decode($_POST['payload']));
+	$body = $_POST['payload']);
 		
 	email('josh@joshreisner.com', $body, $subject);
 }
