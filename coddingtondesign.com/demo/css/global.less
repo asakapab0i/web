@@ -6,6 +6,16 @@
 @gray		: #757678;
 @green		: #bae1d1;
 
+.opacity(@opacity: 0.5) {
+	@ieOpacity: @opacity * 100;
+	-moz-opacity: @opacity;
+	-khtml-opacity: @opacity;
+	-webkit-opacity: @opacity;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{ieOpacity})";
+	filter: ~"alpha(opacity=@{ieOpacity})";
+	opacity: @opacity;
+}
+
 body { font-family: Georgia, serif; font-size: 12px; line-height: 1.5; color: @text; }
 
 a {
@@ -132,13 +142,12 @@ body.projects {
 					&.arrows {
 						position: absolute; height: 561px; width: 200px; top: 0; text-indent: 100%; overflow: hidden; 
 						&.prev { 
-							left: 0; 
-							&:hover { background: url(/images/arrow-left.png) no-repeat 10px center; }
+							left: 0; background: url(/images/arrow-left.png) no-repeat 10px center; .opacity(0);
 						}
 						&.next { 
-							right: 0; 
-							&:hover { background: url(/images/arrow-right.png) no-repeat 168px center; }
+							right: 0; background: url(/images/arrow-right.png) no-repeat 168px center; .opacity(0);
 						}
+						&:hover { .opacity(1); }
 					}
 				}
 			}
@@ -160,6 +169,30 @@ ul.social {
 }
 
 body.projects div.container div.border div.column.side_bottom { border: 0; }
+
+body.room-service div.slideshow_container {
+	position: relative; margin-left: 8px;
+	ul {
+		list-style-type: none; margin: 0; padding: 0; 	
+		li {
+			float: left;
+			&.number { display: none; }
+			&.arrows {
+				cursor: pointer;
+				position: absolute; height: 364px; width: 200px; top: 0; text-indent: 100%; overflow: hidden; 
+				&.prev { 
+					background: url(/images/arrow-left.png) no-repeat 10px center; 
+					left: 0; .opacity(0);
+				}
+				&.next { 
+					background: url(/images/arrow-right.png) no-repeat 168px center;
+					right: 0; .opacity(0);
+				}
+				&:hover { .opacity(1) }
+			}
+		}
+	}
+}
 
 body.contact {
 	fieldset {
