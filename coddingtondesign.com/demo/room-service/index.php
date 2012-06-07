@@ -21,7 +21,7 @@ echo
 					<li><img src="/images/room-service/slideshow/slide4.png" alt="slide1" width="480" height="364"></li>
 					<li><img src="/images/room-service/slideshow/slide5.png" alt="slide1" width="480" height="364"></li>
 					<li><img src="/images/room-service/slideshow/slide6.png" alt="slide1" width="480" height="364"></li>
-					<li><img src="/images/room-service/slideshow/slide7.png" alt="slide1" width="480" height="364"></li>
+					<li><img src="/images/room-service/slideshow/slide7.jpg" alt="slide1" width="480" height="364"></li>
 				</ul>
 				
 				<h2>Our e-design service allows you to:</h2>

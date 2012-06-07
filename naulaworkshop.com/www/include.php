@@ -42,7 +42,7 @@ function drawTop() {
 					<td colspan="4" valign="top" class="white">
 						<table width="100%" border="0" cellpadding="0" cellspacing="0">
 							<tr>
-								<td width="210" rowspan="4" valign="top">' . draw_img('/images/logo.jpg', '/') . '</td>
+								<td width="210" rowspan="4" valign="top" class="logo">' . draw_img('/images/logo.png', '/') . '</td>
 								<td width="630" height="65" valign="top">&nbsp;</td>
 							</tr>
 							<tr><td height="30" valign="top">' . $main_nav . '</td></tr>
@@ -64,23 +64,27 @@ function drawBottom() {
 				<tr>
 					<td height="40" colspan="6" valign="top">' . draw_img('/images/frame/bottom.png') . '</td>
 				</tr>
-				<tr>
+				<tr class="footer">
 					<td height="60">&nbsp;</td>
 					<td width="210" valign="top" class="bottom_copy">
-						<span class="bottom_heading">naula workshop </span><br />
-						<span class="bottom_heading">T</span> 718.628.1912 <br />
+						<span class="bottom_heading">naula</span><br>
+						<span class="bottom_heading">T</span> 718.628.1912<br>
 						<span class="bottom_heading">F </span>718.628.1916
 					</td>
-					<td width="210" valign="top" class="bottom_copy">' . 
-						draw_link('mailto:info@naulaworkshop.com') . '<br />
-						349 Suydam Street, Fourth Floor <br />
-						Brooklyn, NY 11237
+					<td width="210" valign="top" class="bottom_copy">
+						<strong>Brooklyn Showroom</strong><br>
+						349 Suydam Street, Third Floor<br>
+						Brooklyn, NY 11237<br>
+						212.470.6796<br>
+						' . draw_link('mailto:showroom@naulaworkshop.com') . '
 					</td>
 					<td width="210" valign="top">&nbsp;</td>
 					<td width="210" valign="top" class="bottom_copy">
-						';
-	if (!$request['folder']) $return .= 'Branding &amp; Site Design<br/><a href="http://www.ande.nu/" target="_blank">WORK : a design studio</a>';
-	$return .= '
+						<ul class="social">
+							<li><a href="http://www.facebook.com/NaulaWorkshop"><i class="icon-facebook-sign"></i></a></li>
+							<li><a href="https://twitter.com/#!/NaulaShowroom"><i class="icon-twitter-sign"></i></a></li>
+							<li><a href="http://www.linkedin.com/pub/angel-naula/18/3b4/635"><i class="icon-linkedin-sign"></i></a></li>
+						</ul>
 					</td>
 					<td>&nbsp;</td>
 				</tr>

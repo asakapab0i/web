@@ -5,12 +5,12 @@ include('include.php');
 $email			= false;
 $repositories	= array(
 	'joshlib'=>array(
-		'path'=>'/home/joshuareisner/git/joshlib',
-		'deploy'=>'/home/joshuareisner/joshlib'
+		'path'=>'~/git/joshlib',
+		'deploy'=>'~/joshlib'
 	),
 	'bb-login'=>array(
-		'path'=>'/home/joshuareisner/git/bb-login',
-		'deploy'=>'/home/joshuareisner/bb-login'
+		'path'=>'~/git/bb-login',
+		'deploy'=>'~/bb-login'
 	)
 );
 

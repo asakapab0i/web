@@ -21,10 +21,11 @@ if (home()) {
 	}
 
 	$thumbnails = db_table('SELECT t.id, t.title, p.url, ' . db_updated('t') . ' FROM user_thumbnails t JOIN user_pages p ON t.link_id = p.id WHERE t.is_active = 1 AND t.is_published = 1 ORDER BY t.precedence', 6);
-	$titles = array();
 	foreach ($thumbnails as &$t) {
-		$titles[] = draw_div_class('span2', $t['title']); 
-		$t = draw_div_class('span2', draw_img(file_dynamic('user_thumbnails', 'image', $t['id'], 'jpg', $t['updated']), $t['url'], $t['title']));
+		$t = draw_div_class('span2', 
+			draw_img(file_dynamic('user_thumbnails', 'image', $t['id'], 'jpg', $t['updated']), $t['url'], $t['title']) . 
+			draw_div('caption_hover', draw_div('inner', $t['title']))
+		);
 	}
 	
 	echo '
@@ -36,9 +37,6 @@ if (home()) {
 			<div class="span4 facts">
 				<div class="inner">' . $caption . '</div>
 			</div>
-		</div>
-		<div class="row thumbnails_head">
-			' . implode('', $titles) . '
 		</div>
 		<div class="row thumbnails">
 			' . implode('', $thumbnails) . '
@@ -54,6 +52,46 @@ if (home()) {
 	if ($gallery_images = db_table('SELECT id, title, ' . db_updated() . ' FROM user_gallery_images WHERE is_active = 1 AND is_published = 1 AND page_id = ' . $page['id'] . ' ORDER BY precedence')) {
 		foreach ($gallery_images as &$s) $s = draw_div('item', draw_img(file_dynamic('user_gallery_images', 'image', $s['id'], 'jpg', $s['updated'])) . draw_div_class('caption', draw_div_class('inner', $s['title'])));
 		$gallery_images = draw_div('gallery carousel slide', implode('', $gallery_images));
+	} elseif ($page['id'] == 4) { 
+		cms_bar_link('/login/object/?id=21', 'Initiatives');
+	
+		$initiatives = db_table('SELECT id, title, location, description FROM user_initiatives WHERE is_active = 1 AND is_published = 1');
+		foreach ($initiatives as &$i) {
+			list($lat, $lng, $zoom) = explode(',', $i['location']);
+			$i = 'map.addMarker({
+				lat: ' . $lat . ',
+				lng: ' . $lng . ',
+				title: "' . $i['title'] . '",
+				infoWindow: {
+					content: "<div class=\'infowindow\'><h2>' . $i['title'] . '</h2>' . $i['description'] . '</div>"
+				}
+			});';
+		}
+		
+		//initiatives page map
+		$gallery_images = 
+			drawFilter('user_case_study_categories') . 
+			draw_javascript_src('http://maps.google.com/maps/api/js?sensor=true') . 
+			draw_javascript_src('/js/gmaps.js') . 
+			draw_javascript_ready('
+				map = new GMaps({
+					div: "#map",
+					lat: 28.304380682962808,
+					lng: 12.65625,
+					mapTypeControl : false,
+					scrollwheel: false,
+					panControl : false,
+					streetViewControl : false,
+					zoomControl: true,
+					zoom : 2,
+					zoomControlOptions: {
+						style: google.maps.ZoomControlStyle.SMALL
+					}
+				});
+				' . implode('', $initiatives) . '
+		') . 
+		draw_div('#map');
+
 	} else {
 		$gallery_images = false;
 	}
@@ -66,14 +104,14 @@ if (home()) {
 				$r['url'] = '/dl/?id=' . $r['id'];
 				$newwin = false;
 			} else {
-				$icon = draw_img('/images/link.png');
+				$icon = '<i class="icon-external-link"></i>';
 				$r['type'] = 'link';
 				$newwin = true;
 			}
 			$classes[] = $r['type'];
 			$r = draw_link($r['url'], $icon . $r['title'], $newwin) . ' ' . $r['type'];
 		}
-		$resources = draw_div_class('resources', draw_h3('Related Resources') . draw_list($resources, 'resources', 'ul', false, $classes));
+		$resources = draw_div_class('resources', draw_h3('Resources') . draw_list($resources, 'resources', 'ul', false, $classes));
 	} else {
 		$resources = false;
 	}

@@ -14,6 +14,9 @@ if (url_id()) {
 	cms_bar_link('/login/object/edit/?id=5', 'Press List');
 	$press = db_table('SELECT id, title, date, ' . db_updated() . ' FROM user_press WHERE is_active = 1 AND is_published = 1 ORDER BY precedence');
 	foreach ($press as &$p) $p = draw_img(file_dynamic('user_press', 'cover', $p['id'], 'jpg', $p['updated']), './?id=' . $p['id']) . draw_link('./?id=' . $p['id'], $p['title']) . BR . $p['date'];
-	echo draw_div_class('center', draw_list($press));
+	echo draw_div_class('center', 
+		draw_p('For press inquiries, contact Kai Cole ' . draw_link('mailto:kai@naulaworkshop.com') . '.') . BR .
+		draw_list($press)
+	);
 }
 echo drawBottom();

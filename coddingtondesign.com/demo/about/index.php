@@ -11,7 +11,7 @@ echo draw_div('column span3',
 			<p>Interior designer Melanie Coddington is known for spaces with elegance, charm and just the right amount of glam. Named one of the country’s Top 20 young interior designers by House Beautiful, Coddington designs residences and creative commercial spaces from studios in San Francisco and Los Angeles. Coddington’s recent projects include homes in Los Angeles, Pacific Heights, Napa Valley and Carmel.  Her work has been featured in InStyle, House Beautiful, Traditional Home, California Home & Design, San Francisco Magazine, and many other publications.</p>'
 		))
 	) .
-	draw_div('row',
+	draw_div('row last',
 		draw_div('column span2', draw_img('/images/about/taylor.jpg')) . 
 		draw_div('column bio', draw_div('inner',
 			'<h2>Taylor Tanimoto, Senior Designer</h2>

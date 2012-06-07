@@ -50,7 +50,7 @@ div.container {
 		&.prices {
 			.column { margin-bottom: 14px; }
 			div.p {
-				color: @blue; font-style: italic; margin: 4px 0 0 8px; padding-right: 80px; position: relative;
+				color: @blue; font-style: italic; margin: 4px 0 0 8px; padding-right: 90px; position: relative;
 				a { 
 					background-color: @green; color: @gray; padding: 2px 8px; text-transform: lowercase; position: absolute; top: 0; right: 0;
 					:hover { text-decoration: none; }
@@ -66,6 +66,7 @@ div.container {
 				}
 			}
 		}
+		&.last { margin-bottom: 0; }
 	}
 	
 	.bio { 
@@ -131,7 +132,10 @@ body.projects {
 		position: relative;
 		ul {
 			list-style: none; margin: 0; padding: 0;
-			li { float: left; }
+			li { 
+				float: left; 
+				img { width: 739px; height: 561px; }
+			}
 			&.controller {
 				float: left; cursor: pointer; overflow: auto; padding: 0 20px 0 180px; 
 				li {
@@ -182,13 +186,13 @@ body.room-service div.slideshow_container {
 				position: absolute; height: 364px; width: 200px; top: 0; text-indent: 100%; overflow: hidden; 
 				&.prev { 
 					background: url(/images/arrow-left.png) no-repeat 10px center; 
-					left: 0; .opacity(0);
+					left: 0; .opacity(1);
 				}
 				&.next { 
 					background: url(/images/arrow-right.png) no-repeat 168px center;
-					right: 0; .opacity(0);
+					right: 0; .opacity(1);
 				}
-				&:hover { .opacity(1) }
+				/* &:hover { .opacity(1) } */
 			}
 		}
 	}
