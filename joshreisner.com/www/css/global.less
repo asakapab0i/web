@@ -73,6 +73,9 @@ a {
 	color: @red; text-decoration: none; outline: none; cursor: pointer;
 	img { border: 0; cursor: pointer; }
 	&:hover { color: @red; text-decoration: underline; }
+	&.screenshot { .drop-shadow(0, 1px, 20px, 0.4); display: block; 
+		img { display: block; }
+	}
 }
 
 form {
@@ -133,7 +136,7 @@ div.nav_categories {
 		div.navigation { padding: 20px; overflow: auto; }
 		
 		div.post {
-			line-height: 22px; margin: 20px 20px 40px 20px;
+			line-height: 22px; margin: 20px 20px 40px 20px; overflow: auto;
 			
 			h1 { font-size: 30px; font-family: MuseoSlabLight; font-weight: normal; margin: 0 0 23px 0; }
 			h2 { font-size: 20px; font-family: MuseoSlabLight; font-weight: normal; margin: 0 0 10px 0; line-height: 30px; }
@@ -160,8 +163,8 @@ div.nav_categories {
 			}
 			
 			div.meta { 
-				border-top: 1px dashed @lightgray; padding-top: 7px; font-size: 13px; overflow: auto; color: @lightgray; 
-				a { white-space: nowrap; color: @lightgray; }
+				border-top: 1px dashed @mediumgray; padding-top: 7px; font-size: 13px; overflow: auto; color: @mediumgray; 
+				a { white-space: nowrap; color: @mediumgray; }
 			}
 			
 			.alignleft { float: left; margin-bottom: 30px; }
@@ -205,12 +208,16 @@ div.nav_categories {
 			}
 
 		}
+		
 		/* comments */
-		h3 {	
+		h3 {
 			font-family: MuseoSlabBold; font-weight: normal; font-size: 16px;
 			clear: both; text-align: left; background-color: @yellow; padding: 8px 20px 7px 20px;
 			border-width: 1px 0; border-color: darken(@yellow, 20%); border-style: solid;
 			margin-bottom: 0;
+			&.context { 
+				font-size: 13px; font-family: MuseoSlabLight; padding: 3px 20px 2px 20px; margin-top: 20px; 
+			}
 		}
 		
 		ol.commentlist {

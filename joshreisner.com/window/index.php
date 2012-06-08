@@ -26,6 +26,11 @@ function joshlib() {
 					$("div.wide div.number").html($(window).width() + 'px');
 					$("div.tall div.number").html($(window).height() + 'px');
 				}
+				
+				$(window).on("click", function(){
+					//eet window height
+					myRef = window.open(''+self.location,'mywin','width=1024,height=700,toolbar=0,location=0,resizable=0');
+				});
 				setWidth();
 				$(window).resize(setWidth);
 			});
