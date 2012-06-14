@@ -8,34 +8,43 @@ echo drawFirst();
 if (home()) {
 	cms_bar_link('/login/object/?id=2', 'Carousel');
 	cms_bar_link('/login/object/?id=9', 'Thumbnails');
+	cms_bar_link('/login/object/?id=22', 'Facts');
 	
 	//get items for carousel
-	$carousel = db_table('SELECT c.id, c.caption, p.url, ' . db_updated('c') . ' FROM user_carousel_items c JOIN user_pages p ON c.page_id = p.id WHERE c.is_published = 1 AND c.is_active = 1 ORDER BY c.precedence');
-	$caption = $carousel[0]['caption'];
+	$carousel = db_table('SELECT c.id, c.caption, p.url, p.title, ' . db_updated('c') . ' FROM user_carousel_items c JOIN user_pages p ON c.page_id = p.id WHERE c.is_published = 1 AND c.is_active = 1 ORDER BY c.precedence');
 	$controller = array();
-	$counter = 1;
+	$counter = 1; //need this counter for carousel controller
 	foreach ($carousel as &$c) {
 		$controller[] = $counter;
 		$counter++;
-		$c = draw_div('item', draw_img(file_dynamic('user_carousel_items', 'image', $c['id'], 'jpg', $c['updated']), $c['url'], $c['caption']));
+		$c = draw_div('item', 
+			draw_link($c['url'], 
+				draw_img(file_dynamic('user_carousel_items', 'image', $c['id'], 'jpg', $c['updated']), false, $c['title']) .
+				strip_tags($c['caption'])
+			)
+		);
 	}
 
 	$thumbnails = db_table('SELECT t.id, t.title, p.url, ' . db_updated('t') . ' FROM user_thumbnails t JOIN user_pages p ON t.link_id = p.id WHERE t.is_active = 1 AND t.is_published = 1 ORDER BY t.precedence', 6);
+	$counter = 1; //need this counter for option1, option2 classes -- needed for CSS
 	foreach ($thumbnails as &$t) {
-		$t = draw_div_class('span2', 
+		$t = draw_div_class('span2 option' . $counter, 
 			draw_img(file_dynamic('user_thumbnails', 'image', $t['id'], 'jpg', $t['updated']), $t['url'], $t['title']) . 
 			draw_div('caption_hover', draw_div('inner', $t['title']))
 		);
+		$counter++;
 	}
+	
+	$facts = db_table('SELECT content FROM user_facts WHERE is_published = 1 AND is_active = 1 ORDER BY RAND()', 2);
+	foreach ($facts as &$f) $f = draw_div('fact', $f['content']);
 	
 	echo '
 		<div class="row hero">
-			<div class="carousel_wrapper">
-				<div class="span8 carousel slide">' . draw_div('carousel-inner', implode('', $carousel)) . '</div>
-				' . draw_list($controller, 'controller') . '
-			</div>
-			<div class="span4 facts">
-				<div class="inner">' . $caption . '</div>
+			<div class="span10 carousel slide">' . implode('', $carousel) . '</div>
+			' . draw_list($controller, 'controller') . '
+			<div class="span2 facts">
+				<div class="title">Did you know?</div>
+				' . implode('', $facts) . '
 			</div>
 		</div>
 		<div class="row thumbnails">
@@ -44,7 +53,7 @@ if (home()) {
 		';
 } elseif ($page) {
 	cms_bar_link('/login/object/edit/?id=' . $page['id'] . '&object_id=1', 'Edit Page');
-	cms_bar_link('/login/object/edit/?object_id=1', 'New Page');
+	//cms_bar_link('/login/object/edit/?object_id=1', 'New Page');
 
 	$side_images = db_table('SELECT id, title, ' . db_updated() . ' FROM user_side_images WHERE is_active = 1 AND is_published = 1 AND page_id = ' . $page['id'] . ' ORDER BY precedence');
 	foreach ($side_images as &$s) $s = draw_img(file_dynamic('user_side_images', 'image', $s['id'], 'jpg', $s['updated'])) . draw_div_class('caption', $s['title']);
@@ -65,7 +74,8 @@ if (home()) {
 				infoWindow: {
 					content: "<div class=\'infowindow\'><h2>' . $i['title'] . '</h2>' . $i['description'] . '</div>"
 				}
-			});';
+			});
+			';
 		}
 		
 		//initiatives page map
@@ -75,9 +85,9 @@ if (home()) {
 			draw_javascript_src('/js/gmaps.js') . 
 			draw_javascript_ready('
 				map = new GMaps({
-					div: "#map",
-					lat: 28.304380682962808,
-					lng: 12.65625,
+					div: "#mapdiv",
+					lat: "28.304380682962808",
+					lng: "12.65625",
 					mapTypeControl : false,
 					scrollwheel: false,
 					panControl : false,
@@ -90,7 +100,7 @@ if (home()) {
 				});
 				' . implode('', $initiatives) . '
 		') . 
-		draw_div('#map');
+		draw_div('#mapdiv');
 
 	} else {
 		$gallery_images = false;

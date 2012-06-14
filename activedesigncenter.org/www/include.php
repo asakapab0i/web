@@ -106,13 +106,18 @@ function drawForm($style) {
 		<div><select><option>Your Profession</option>' . $professions . '</select></div>
 		<div><select><option>Your Professonal Sector</option>' . $sectors . '</select></div>';
 	
+	$return .= '<div><input type="text" class="span1" placeholder="ZIP" maxlength="5"></div>';
+
 	if ($style == 'donation') $return .= '
 		<div class="input-prepend input-append">
 			<span class="add-on">$</span><input class="span2" size="16" placeholder="0" type="text"><span class="add-on">.00</span>
 		</div>';
 	
-	$return .= '				
-		<div><textarea placeholder="Type your message here."></textarea></div>
+	if ($style=='contact') {
+		$return .= '<div><textarea placeholder="Type your message here."></textarea></div>';
+	}
+	
+	$return .= '
 		<div><label class="checkbox">
 			<input type="checkbox" checked="checked"> Add me to the mailing list
 		</label></div>
@@ -157,33 +162,20 @@ function drawFunction($function) {
 		case 'download' :
 			$return = drawForm('download');
 			break;
+		case 'facts' :
+			cms_bar_link('/login/object/?id=22', 'Facts');
+			$return = draw_list(db_array('SELECT content FROM user_facts WHERE is_active = 1 AND is_published = 1 ORDER BY RAND()'));
+			break;
 		case 'in-the-news' :
-			/*
-			$categories = db_table('SELECT id, title FROM user_categories WHERE id <> 5 AND is_active = 1 ORDER BY title');
-			foreach ($categories as &$c) $c = '<a data-id="' . $c['id'] . '" class="checked"><i class="icon-check icon-white"></i> ' . $c['title'] . '</a>';
-			$return = draw_list($categories, 'filter');
-			*/
-			$return = drawFilter('user_categories'); //todo exclude 5?
-			/* $return = 
-				'<ul class="nav nav-pills">
-					<li class="dropdown active">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Filter by Category<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li class="active"><a href="#">All</a></li>
-							<li class="divider"></li>
-							' . implode('', $categories) . '
-						</ul>
-					</li>
-				</ul>';*/
-				
-			$return .= 	draw_div('wrapper', drawInTheNews());
+			cms_bar_link('/login/object/?id=14', 'News Items');
+			$return = drawFilter('user_categories') . draw_div('wrapper', drawInTheNews());
 			break;
 		case 'press' :
-			$return = draw_div('in-the-news',
-				draw_div('wrapper', drawInTheNews(5))
-			);
+			cms_bar_link('/login/object/?id=14', 'News Items');
+			$return = draw_div('in-the-news', draw_div('wrapper', drawInTheNews(5)));
 			break;
 		case 'staff' :
+			cms_bar_link('/login/object/?id=12', 'Staff');
 			$staff = db_table('SELECT id, title, name, bio FROM user_staff WHERE is_active = 1 AND is_published = 1 ORDER BY precedence');
 			foreach ($staff as &$s) $s = draw_div('photo') . draw_h2($s['name'] . ' ' . draw_span('title', $s['title']))  . $s['bio'];
 			$return = draw_list($staff, 'staff');
@@ -232,6 +224,7 @@ function drawLast() {
 		</div>
 	</div>
 	' . 
+	draw_javascript_src('/js/respond.min.js') .
 	draw_javascript_src('/js/jquery.isotope.min.js') .
 	draw_javascript_src('/js/global.js') . 
 	cms_bar() . 

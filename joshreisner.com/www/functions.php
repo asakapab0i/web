@@ -6,7 +6,19 @@ function drawPost() {
 	<h2><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 	<?php the_content('Read More &raquo;'); ?>
 	<div class="meta">
-		Posted by <a href="<?php the_author()?>"><?php the_author()?></a> on <?php the_time('F j, Y') ?> <?php edit_post_link('Edit', '| '); ?>
+		Posted on <?php the_time('F j, Y') ?> <?php edit_post_link('Edit', '| '); ?>
+		<div class="btn-group tags">
+			<a class="btn dropdown-toggle btn-mini" data-toggle="dropdown" href="#">
+				Tags
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Work</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Work</a></li>
+				<li><a href="#">Work</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 <?php
