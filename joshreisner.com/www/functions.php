@@ -1,26 +1,42 @@
 <?php
 
 function drawPost() {
-?>	
-<div class="post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<h2><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-	<?php the_content('Read More &raquo;'); ?>
-	<div class="meta">
-		Posted on <?php the_time('F j, Y') ?> <?php edit_post_link('Edit', '| '); ?>
-		<div class="btn-group tags">
-			<a class="btn dropdown-toggle btn-mini" data-toggle="dropdown" href="#">
-				Tags
-				<span class="caret"></span>
-			</a>
-			<ul class="dropdown-menu">
-				<li><a href="#">Work</a></li>
-				<li class="divider"></li>
-				<li><a href="#">Work</a></li>
-				<li><a href="#">Work</a></li>
-			</ul>
+	//regular post view
+	
+	//build dropdown
+	$dropdown = '';
+	
+	$post_categories = wp_get_post_categories(get_the_ID());
+	foreach($post_categories as $c){
+		$c = get_category($c);
+		$dropdown .= '<li><a href="' . get_category_link($c->term_id) . '">' . $c->name . ' <span class="badge">' . $c->count . '</span></a></li>';
+	}
+	
+	$post_tags = wp_get_post_tags(get_the_ID());
+	if (count($post_tags)) {
+		$dropdown .= '<li class="divider"></li>';
+		foreach ($post_tags as $t) {
+			$dropdown .= '<li><a href="' . get_tag_link($t->term_id) . '">' . $t->name . ' <span class="badge">' . $t->count . '</span></a></li>';
+		}
+	}
+	
+	?>	
+	<div class="post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<h2><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+		<div class="entry"><?php the_content('Read More &raquo;'); ?></div>
+		<div class="meta">
+			Posted on <?php the_time('F j, Y') ?> <?php edit_post_link('Edit', '| '); ?>
+			<div class="btn-group tags">
+				<a class="btn dropdown-toggle btn-mini" data-toggle="dropdown" href="#">
+					Similar Posts
+					<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<?php echo $dropdown?>
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>
 <?php
 }
 			

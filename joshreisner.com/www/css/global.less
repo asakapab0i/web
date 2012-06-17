@@ -136,84 +136,82 @@ div.nav_categories {
 		div.navigation { padding: 20px; overflow: auto; }
 		
 		div.post {
-			line-height: 22px; margin: 20px 20px 40px 20px; overflow: visible;
+			margin: 20px 20px 40px 20px; 
 			
 			h1 { font-size: 30px; font-family: MuseoSlabLight; font-weight: normal; margin: 0 0 23px 0; }
 			h2 { font-size: 20px; font-family: MuseoSlabLight; font-weight: normal; margin: 0 0 10px 0; line-height: 30px; }
 			h2 a { font-size: 30px; margin-right: 10px; }
 			
-			img, iframe, video { max-width: 100%; width: auto\9; }
-			img.screenshot { margin: -10px 0 -18px -20px; }
-			
-			p { margin-bottom: 20px; }
-			
-			div.wp-caption {
-				position: relative; margin-bottom: 20px;
-				p.wp-caption-text { 
-					display: none; position: absolute; bottom: 0; right: 0; background: @lightgray; margin: 0; padding: 5px 8px; color: @darkgray; border-left: 1px solid @white; border-top: 1px solid @white; font-size: 13px; 
-					.opacity(.8);
+			.entry {
+				line-height: 22px; 
+
+				img, iframe, video { max-width: 100%; width: auto\9; }
+				img.screenshot { margin: -10px 0 -18px -20px; }
+				
+				p { margin-bottom: 20px; }
+				
+				div.wp-caption {
+					position: relative; margin-bottom: 20px;
+					p.wp-caption-text { 
+						display: none; position: absolute; bottom: 0; right: 0; background: @lightgray; margin: 0; padding: 5px 8px; color: @darkgray; border-left: 1px solid @white; border-top: 1px solid @white; font-size: 13px; 
+						.opacity(.8);
+					}
+					&:hover p.wp-caption-text { display: block; }
 				}
-				&:hover p.wp-caption-text { display: block; }
-			}
-						
-			blockquote {
-				color: @mediumgray; font-size: 13px; border-left: 2px dotted @lightgray; padding-left: 10px; margin-left: 20px; 
-				p { font-size: 13px; color: @mediumgray; }
-				h3 { font-weight: bold; font-size: 13px; }
+							
+				blockquote {
+					color: @mediumgray; font-size: 13px; border-left: 2px dotted @lightgray; padding-left: 10px; margin-left: 20px; 
+					p { font-size: 13px; color: @mediumgray; }
+					h3 { font-weight: bold; font-size: 13px; }
+				}
+				
+				.alignleft { float: left; margin-bottom: 30px; }
+				.alignright { float: right; text-align: right; width: 250px; }
+				
+				ul, ol {
+					margin: 0 0 25px 30px;	
+					li { margin-bottom: 10px; }
+				}
+				
+				a.mp3 { background-color: @yellow; padding: 2px; font-weight: normal; }
+				
+				div.gallery {
+					margin: 0 0 5px -15px; overflow: auto;
+					
+					/* can't nest these because sometimes wordpress will forget the dl */
+					dl { float: left; -webkit-margin-before: 0; -webkit-margin-after: 0; margin: 0; padding:0; overflow: hidden; }
+					dt { 
+						float: left; margin: 0; padding: 0; 
+						a { 
+							margin: 0 0 15px 15px; padding: 0; display: block; border: 1px solid @lightgray; padding: 4px; .rounded(3); .drop-shadow();
+							img { margin: 0; padding: 0; display: block; 
+								width: 143px; height: 143px; 
+							}
+						}
+						a:hover { }
+					}
+					dd { margin: 0; padding:0; }
+				}
 			}
 			
 			div.meta { 
-				border-top: 1px dashed @mediumgray; padding-top: 7px; font-size: 13px; overflow: auto; color: @mediumgray; 
-				a { white-space: nowrap; color: @mediumgray; }
+				border-top: 1px dashed @mediumgray; padding-top: 7px; font-size: 13px; color: @mediumgray; 
 				
 				div.tags {
-					float: right; height: 250px; 
-					ul { margin: 1px 0 0; right: 0; left: auto; }
-				}
-				
-			}
-			
-			.alignleft { float: left; margin-bottom: 30px; }
-			.alignright { float: right; text-align: right; width: 250px; }
-			
-			ul, ol {
-				margin: 0 0 25px 30px;	
-				li { margin-bottom: 10px; }
-			}
-			
-			a.mp3 { background-color: @yellow; padding: 2px; font-weight: normal; }
-			
-			div.gallery {
-				margin: 0 0 5px -15px; overflow: auto;
-				
-				/* can't nest these because sometimes wordpress will forget the dl */
-				dl { float: left; -webkit-margin-before: 0; -webkit-margin-after: 0; margin: 0; padding:0; overflow: hidden; }
-				dt { 
-					float: left; margin: 0; padding: 0; 
-					a { 
-						margin: 0 0 15px 15px; padding: 0; display: block; border: 1px solid @lightgray; padding: 4px; .rounded(3); .drop-shadow();
-						img { margin: 0; padding: 0; display: block; 
-							width: 143px; height: 143px; 
-						}
+					float: right; 
+					ul { 
+						li span { float: right; }
 					}
-					a:hover { }
 				}
-				dd { margin: 0; padding:0; }
 				
 			}
 			
+		}
+
 			div#infscr-loading {
 				display: inline; float: left;
 				img { display: inline; float: left; }
 			}
-
-			/*404 page*/
-			ul.nospacing {
-				margin: 0; padding: 0; list-style-type: none; 
-				li { margin: 0; padding: 0; }
-			}
-
-		}
 		
 		/* comments */
 		h3 {
