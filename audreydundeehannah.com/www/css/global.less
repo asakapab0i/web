@@ -3,9 +3,25 @@ body { margin:0px; text-align:center; font-family:Helvetica, Verdana, sans-serif
 a { outline:none; color:#4c50f6; border: 0; }
 a img { border: 0; }
 
-#banner { height:41px; position:relative; }
-#banner ul.nav { position:absolute; display:block; top:15px; right:0px; padding:0px; margin:0px; list-style:none; }
-#banner ul.nav li { float:left; margin-left:30px; }
+#banner {
+	height:41px; position:relative; 
+	ul.nav {
+		position:absolute; display:block; top:15px; right:0px; padding:0px; margin:0px; list-style:none; 
+		li {
+			float:left; margin-left:30px; 
+			a { height: 13px; display: block; text-indent: 100%; overflow: hidden; }
+			&.about a {
+				background-image: url(/images/nav/about_off.png); width: 60px; 
+				&:hover { background-image: url(/images/nav/about_on.png); }
+			}
+			&.contact a {
+				background-image: url(/images/nav/contact_off.png); width: 81px; 
+				&:hover { background-image: url(/images/nav/contact_on.png); }
+			}
+		}
+	}
+}
+
 #container { width:847px; margin:25px auto 25px auto; text-align:left; }
 #content { min-height:400px; }
 div.left { width:425px; float:left; clear:left; }
@@ -17,4 +33,4 @@ img.icon { margin:1px 6px 0px 0px; display:block; float:left;  }
 div.pixrow img { float:left; }
 div.contact { width:847px; text-align:center; font-size:18px; margin-top:120px;}
 
-#footer { clear:both; padding-top:20px; }
+.footer { clear:both; padding-top:20px; }

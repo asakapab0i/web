@@ -34,10 +34,10 @@ image3_off.src	= '/about/3-small_off.jpg';
 	
 	<p>I’ve got smarts (book, street), strength (pillar of), and funny (noun).</p>
 	<p>I’m a dramatic actress who loves a great script (degree in Drama from Stanford University, awarded the Eleanor Prosser Prize for excellence), an improviser at home in comedy (Second City and Upright Citizens Brigade trained), and able to play either an intelligent leading lady or a quirky supporting character (versatile).</p>
-	<p>Currently, I’m starring in an international Swiffer campaign as a fashionable dirt-covered lady, studying with film director Dan Ireland through his master class, and making her web series "Conclusions To Be Drawn From the Internet."</p>
+	<p>Currently, I’m starring in an international Swiffer campaign as a fashionable dirt-covered lady, studying with film director Dan Ireland through his master class, and making my web series "Conclusions To Be Drawn From the Internet."</p>
 	
 	<div class="title">Links</div>
-	<?=draw_img("/images/pdf.png", "audrey-resume.pdf", array("class"=>"icon", "target"=>"_blank"))?><a href="audrey-resume.pdf" target="_blank">Audrey's Resume</a> | <a href="http://www.imdb.com/name/nm3425473/">IMDB</a> | <a href="http://www.youtube.com/user/audreydundeehannah/videos">YouTube</a>
+	<?=draw_img("/images/pdf.png", "audrey-resume.pdf", array("class"=>"icon", "target"=>"_blank"))?><a href="audrey-resume.pdf" target="_blank">Audrey's Resume</a> | <a href="http://www.imdb.com/name/nm3425473/">IMDb</a> | <a href="http://www.youtube.com/user/audreydundeehannah/videos">YouTube</a>
 </div>
 
 <div class="right">

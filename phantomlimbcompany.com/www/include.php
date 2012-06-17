@@ -18,24 +18,17 @@ function drawPress() {
 
 function drawTop($title='Phantom Limb Company') {
 	global $request;
-	$return = url_header_utf8() . draw_doctype() . '<html>
-		<head>' .
+	$return = url_header_utf8() . draw_doctype() .
+		draw_container('head',
 			draw_meta_utf8() .
 			draw_title($title) .
 			draw_favicon('/images/logo.png') . 
-			draw_css_src('/style.css') . '
-			<script type="text/javascript" src="/_site/lightbox/js/prototype.js"></script>
-			<script type="text/javascript" src="/_site/lightbox/js/scriptaculous.js?load=effects,builder"></script>
-			<script type="text/javascript" src="/_site/lightbox/js/lightbox.js"></script>
-
-			<script type="text/javascript" src="http://use.typekit.com/clc2xmh.js"></script>
-			<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-			<link rel="stylesheet" href="/_site/lightbox/css/lightbox.css" type="text/css" media="screen" />
-		</head>
-		' . draw_body_open() . '
-		<div id="container">';
-	$return .= draw_div('banner', draw_img('/images/logo.png', '/')) . 
+			draw_css_src('http://fonts.googleapis.com/css?family=IM+Fell+English:400,400italic') . 
+			draw_css_src('/css/global.css')
+		) . 
+		draw_body_open() . 
+		draw_div_open('container') . 
+		draw_div('banner', draw_img('/images/logo.png', '/')) . 
 			draw_div('navigation', draw_nav(array(
 				'/'=>'Home',
 				'/about/'=>'About',
@@ -45,7 +38,7 @@ function drawTop($title='Phantom Limb Company') {
 				'/press/'=>'Press',
 				'/contact/'=>'Contact'
 			), 'text', 'navigation', '/' . $request['folder'] . '/'));
-	if (!home()) $return .= draw_div('header', draw_img($request['path'] . 'header.png'));
+
 	return $return;
 }
 

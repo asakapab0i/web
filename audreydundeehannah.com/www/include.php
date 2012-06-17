@@ -3,22 +3,18 @@ extract(joshlib());
 
 function drawTop($title="Audrey Dundee Hannah") {
 	global $request;
-	$pages = array('/about/'=>'About', '/contact/'=>'contact');
+	$pages = array('/about/'=>'About', '/contact/'=>'Contact');
 	$return = url_header_utf8() . '
 	<head>
 		' . draw_meta_utf8() . '
 		<title>' . $title . '</title>
-		' . draw_css_src("/styles/screen.css") . '
-		<script type="text/javascript" src="/_site/lightbox/js/prototype.js"></script>
-		<script type="text/javascript" src="/_site/lightbox/js/scriptaculous.js?load=effects,builder"></script>
-		<script type="text/javascript" src="/_site/lightbox/js/lightbox.js"></script>
-		<link rel="stylesheet" href="/_site/lightbox/css/lightbox.css" type="text/css" media="screen" />
+		' . draw_css_src("/css/global.css") . '
 	</head>
 	<body>
 		<div id="container">
 			<div id="banner">
 			' . draw_img("/images/name.png", "/", array("id"=>"name")) .
-			draw_nav($pages, 'rollovers') . '
+			draw_nav($pages) . '
 			</div>
 			<div id="content">';
 	return $return;

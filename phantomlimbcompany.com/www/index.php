@@ -15,4 +15,5 @@ echo drawTop();
 	<a class="facebook" href="http://www.facebook.com/pages/Phantom-Limb-Company/167188836649776?v=wall">Follow us on Facebook</a>
 </div>
 
-<?=drawBottom()?>
+<?php
+echo drawBottom();

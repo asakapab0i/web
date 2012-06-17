@@ -1,8 +1,58 @@
 <?php
 $events = array();
+
+
+$events[] = array(
+	'udate'=>mktime(0,0,0,3,4,2012),
+	'date'=>'May 3&ndash;4, 2012',
+	'title'=>'69&deg; South',
+	'link'=>'/projects/shackleton/',
+	'location'=>'Scottsdale Center for the Arts, Scottsdale, AZ'
+);
+$events[] = array(
+	'udate'=>mktime(0,0,0,4,6,2012),
+	'date'=>'April 5&ndash;6, 2012',
+	'title'=>'69&deg; South',
+	'link'=>'/projects/shackleton/',
+	'location'=>'Krannert Center, Champagne-Urbana, IL'
+);
+$events[] = array(
+	'udate'=>mktime(0,0,0,5,2,2012),
+	'date'=>'May 2, 2012',
+	'title'=>'69&deg; South',
+	'link'=>'/projects/shackleton/',
+	'location'=>'Capitol Center for the Arts, Concord, NH'
+);
+$events[] = array(
+	'udate'=>mktime(0,0,0,2,15,2012),
+	'date'=>'February 15, 2012',
+	'title'=>'69&deg; South',
+	'link'=>'/projects/shackleton/',
+	'extlink'=>'http://www.keene.edu/racbp/events_theatre/phantomblimb.html',
+	'location'=>'Redfern Arts Center, Keene, NH'
+);
+$events[] = array(
+	'udate'=>mktime(0,0,0,2,12,2012),
+	'date'=>'February 7-12, 2012',
+	'title'=>'69&deg; South',
+	'link'=>'/projects/shackleton/',
+	'extlink'=>'https://artsemerson.org/Online/default.asp?doWork%3A%3AWScontent%3A%3AloadArticle=Load&BOparam%3A%3AWScontent%3A%3AloadArticle%3A%3Aarticle_id=AE2B9388-58DB-4C81-9DD2-FF27532673B3',
+	'location'=>'The Paramount Theatre, Arts Emerson, Boston, MA'
+);
+$events[] = array(
+	'udate'=>mktime(0,0,0,11,11,2011),
+	'date'=>'November 11, 2012',
+	'title'=>'69&deg; South',
+	'link'=>'/projects/shackleton/',
+	'extlink'=>'http://www.jccc.edu/performing-arts-series/events/2011-2012/69-degrees-south.html',
+	'location'=>'Johnson County Community College, Overland Park, Kansas'
+);
+
+
+
 $events[] = array(
 	'udate'=>mktime(0,0,0,8,22,2011),
-	'date'=>'Aug 18, 2011&ndash;22, 2011',
+	'date'=>'Aug 18&ndash;22, 2011',
 	'title'=>'69&deg; South',
 	'link'=>'/projects/shackleton/',
 	'extlink'=>'http://www.noorderzon.nl/?id=274&cult=uk',
